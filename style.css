@@ -53,8 +53,32 @@ body {
     text-align: center;
 }
 
+footer {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
 a {
     color: black;
     text-decoration: none;
-    letter-spacing: 7px;
+    letter-spacing: 10px;
+}
+
+.previous_button {
+    background-color: white;
+    color: black;
+    margin-right: 20px;
+}
+
+.next_button {
+    background-color: white;
+    color: black;
+    margin-left: 20px;
+}
+
+i,
+a:hover {
+    cursor: pointer;
 }
