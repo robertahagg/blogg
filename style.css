@@ -1,0 +1,60 @@
+@charset "UTF-8";
+.image {
+    background-image: url(girlhat.jpg);
+    height: 75vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 15px;
+    background-position: top center;
+}
+
+ul {
+    list-style-type: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+li {
+    display: inline-block;
+    text-decoration-style: none;
+}
+
+form {
+    float: right;
+    margin-right: 10px;
+}
+
+h1,
+h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1 {
+    font-size: 48px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    letter-spacing: 7px;
+}
+
+h2 {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+p {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+}
+
+body {
+    text-align: center;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 7px;
+}
