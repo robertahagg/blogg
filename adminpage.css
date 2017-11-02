@@ -1,0 +1,30 @@
+h1,
+h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+    font-weight: lighter;
+}
+
+h1 {
+    font-size: 55px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    letter-spacing: 9px;
+}
+
+h2 {
+    font-size: 35px;
+    letter-spacing: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+body {
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+p {
+    margin: 2px;
+}
