@@ -15,6 +15,11 @@ ul {
     font-size: 18px;
     margin-bottom: 5px;
     color: black;
+    padding-left: 5px;
+}
+
+.fa-user {
+    float: left;
 }
 
 li {
