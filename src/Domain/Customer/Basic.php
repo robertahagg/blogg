@@ -1,9 +1,9 @@
 <?php
 
-namespace Bookstore\Domain\Customer;
+namespace Blog\Domain\Customer;
 
-use Bookstore\Domain\Customer;
-use Bookstore\Domain\Person;
+use Blog\Domain\Customer;
+use Blog\Domain\Person;
 
 class Basic extends Person implements Customer {
     public function getMonthlyFee() {

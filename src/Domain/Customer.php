@@ -1,6 +1,6 @@
 <?php
 
-namespace Bookstore\Domain;
+namespace Blog\Domain;
 
 interface Customer extends Payer {
     public function getMonthlyFee();

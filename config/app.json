@@ -1,6 +1,6 @@
 {
     "db": {
-        "dsn": "mysql:host=127.0.0.1;dbname=bookstore",
+        "dsn": "mysql:host=127.0.0.1;dbname=roberta_haggstrom_05_blogg",
         "user": "root",
         "password": "root"
     }

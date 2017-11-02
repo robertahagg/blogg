@@ -1,7 +1,7 @@
 <?php
 
-namespace Bookstore\Domain\Customer;
-use Bookstore\Domain\Customer;
+namespace Blog\Domain\Customer;
+use Blog\Domain\Customer;
 
 class CustomerFactory {
     public static function factory($type, $id, $firstname, $surname, $email) {

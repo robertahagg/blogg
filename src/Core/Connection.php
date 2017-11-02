@@ -1,10 +1,10 @@
 <?php
 
-    namespace Bookstore\Core;
+    namespace Blog\Core;
 
     use \PDO;
-    use Bookstore\Core\Config;
-    use Bookstore\Utils\Singleton;
+    use Blog\Core\Config;
+    use Blog\Utils\Singleton;
 
     class Connection extends Singleton
     {

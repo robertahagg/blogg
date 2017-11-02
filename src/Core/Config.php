@@ -1,9 +1,9 @@
 <?php
 
-    namespace Bookstore\Core;
+    namespace Blog\Core;
 
-    use Bookstore\Utils\Singleton;
-    use Bookstore\Exceptions\NotFoundException;
+    use Blog\Utils\Singleton;
+    use Blog\Exceptions\NotFoundException;
 
     /**
      * Singleton

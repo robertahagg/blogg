@@ -1,6 +1,6 @@
 <?php
 
-namespace Bookstore\Controllers;
+namespace Blog\Controllers;
 
 class ErrorController extends AbstractController
 {

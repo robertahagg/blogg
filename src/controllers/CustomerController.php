@@ -1,9 +1,9 @@
 <?php
 
-namespace Bookstore\Controllers;
+namespace Blog\Controllers;
 
-use Bookstore\Exceptions\NotFoundException;
-use Bookstore\Models\CustomerModel;
+use Blog\Exceptions\NotFoundException;
+use Blog\Models\CustomerModel;
 
 class CustomerController extends AbstractController
 {

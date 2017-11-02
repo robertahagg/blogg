@@ -1,8 +1,8 @@
 <?php
 
-namespace Bookstore\Models;
+namespace Blog\Models;
 
-use Bookstore\Core\Connection;
+use Blog\Core\Connection;
 
 abstract class AbstractModel {
     protected $db;

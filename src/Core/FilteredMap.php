@@ -1,5 +1,5 @@
 <?php
-    namespace Bookstore\Core;
+    namespace Blog\Core;
 
     class FilteredMap
     {

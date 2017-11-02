@@ -1,8 +1,8 @@
 <?php
 
-namespace Bookstore\Domain;
+namespace Blog\Domain;
 
-use Bookstore\Utils\Unique;
+use Blog\Utils\Unique;
 
 class Person {
     use Unique;

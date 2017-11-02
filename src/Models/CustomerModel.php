@@ -1,15 +1,15 @@
 <?php
 
-namespace Bookstore\Models;
+namespace Blog\Models;
 
-use Bookstore\Domain\Customer;
-use Bookstore\Domain\Customer\CustomerFactory;
-use Bookstore\Exceptions\NotFoundException;
+use Blog\Domain\Customer;
+use Blog\Domain\Customer\CustomerFactory;
+use Blog\Exceptions\NotFoundException;
 use PDO;
 
 class CustomerModel extends AbstractModel
 {
-    const CLASSNAME = '\Bookstore\Domain\Customer\CustomerFactory';
+    const CLASSNAME = '\Blog\Domain\Customer\CustomerFactory';
 
     public function get(int $customerId): CustomerFactory
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Bookstore\Controllers;
+namespace Blog\Controllers;
 
-use Bookstore\Core\Request;
+use Blog\Core\Request;
 
 abstract class AbstractController
 {

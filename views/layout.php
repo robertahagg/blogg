@@ -4,10 +4,10 @@
 </head>
 <body>
     <div style="border: solid 1px">
-        <a href="/books">Books</a>
+        <a href="/posts">Posts</a>
         <a href="/customers">Customers</a>
         <hr>
-        <form action="/books/search" method="get">
+        <form action="/posts/search" method="get">
             <label>Title</label>
             <input type="text" name="title">
             <label>Author</label>

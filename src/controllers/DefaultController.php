@@ -1,8 +1,8 @@
 <?php
 
-namespace Bookstore\Controllers;
+namespace Blog\Controllers;
 
-use Bookstore\Exceptions\NotFoundException;
+use Blog\Exceptions\NotFoundException;
 
 class DefaultController extends AbstractController
 {

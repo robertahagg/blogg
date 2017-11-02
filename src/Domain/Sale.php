@@ -1,11 +1,11 @@
 <?php
 
-namespace Bookstore\Domain;
+namespace Blog\Domain;
 
 class Sale {
     private $id;
     private $customer_id;
-    private $books;
+    private $posts;
     private $date;
 
     public function setCustomerId(int $customerId) {
@@ -20,22 +20,22 @@ class Sale {
         return $this->customer_id;
     }
 
-    public function getBooks(): array {
-        return $this->books;
+    public function getPosts(): array {
+        return $this->posts;
     }
 
     public function getDate(): string {
         return $this->date;
     }
 
-    public function addBook(int $bookId, int $amount = 1) {
-        if (!isset($this->books[$bookId])) {
-            $this->books[$bookId] = 0;
+    public function addPost(int $postId, int $amount = 1) {
+        if (!isset($this->posts[$postId])) {
+            $this->posts[$postId] = 0;
         }
-        $this->books[$bookId] += $amount;
+        $this->posts[$postId] += $amount;
     }
 
-    public function setBooks(array $books) {
-        $this->books = $books;
+    public function setPosts(array $posts) {
+        $this->posts = $posts;
     }
 }
