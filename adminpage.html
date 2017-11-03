@@ -31,6 +31,36 @@
     </header>
     <section>
         <h2>Create a new post</h2>
+        <form class="post_form"></form>
+        <action="" method="post">
+            <div>
+                <div>
+                    <label for="id">#Id:</label> <input type="id" id="id" name="id">
+                </div>
+                <div>
+                    <label for="date">Date:</label> <input type="date" id="" name="date">
+                </div>
+                <div>
+                    <label for="author">Author:</label> <input type="author" id="author" name="author">
+                </div>
+                <label for="title">Title:</label> <input type="text" id="" name="title">
+            </div>
+            <div>
+                <label for="msg">Body:</label> <textarea id="" name="user_message"></textarea>
+            </div>
+            <div>
+                <label for="media_url">Media url:</label> <input type="media" id="" name="media_url">
+            </div>
+            <div>
+                <label for="category">Category:</label> <input type="category" id="category" name="category">
+            </div>
+            <div>
+                <label for="tags">Tags:</label> <input type="tags" id="tags" name="tags">
+            </div>
+            <div class="button">
+                <button type="submit">Submit your post</button>
+            </div>
+            </form>
 
     </section>
     <section>
@@ -39,7 +69,6 @@
             <tr>
                 <th>#id</th>
                 <th>Title</th>
-                <th>Body</th>
                 <th>Date</th>
                 <th>Author</th>
                 <th>Category</th>
@@ -49,7 +78,6 @@
             <tr>
                 <td>example ID</td>
                 <td>example title</td>
-                <td>example body</td>
                 <td>example date</td>
                 <td>example author</td>
                 <td>example category</td>
@@ -59,7 +87,6 @@
             <tr>
                 <td>example ID</td>
                 <td>example title</td>
-                <td>example body</td>
                 <td>example date</td>
                 <td>example author</td>
                 <td>example category</td>
@@ -69,7 +96,6 @@
             <tr>
                 <td>example ID</td>
                 <td>example title</td>
-                <td>example body</td>
                 <td>example date</td>
                 <td>example author</td>
                 <td>example category</td>
@@ -79,7 +105,6 @@
             <tr>
                 <td>example ID</td>
                 <td>example title</td>
-                <td>example body</td>
                 <td>example date</td>
                 <td>example author</td>
                 <td>example category</td>
@@ -91,7 +116,8 @@
     </section>
 </body>
 <footer>
-
+    <a href="#" class="previous_button">&laquo; Previous</a>
+    <a href="#" class="next_button">Next &raquo;</a>
 </footer>
 
 </html>
