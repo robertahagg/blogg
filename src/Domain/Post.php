@@ -7,6 +7,7 @@ class Post {
     private $title;
     private $body;
     private $date;
+    private $image_url;
     
 
     public function getId(): int {
@@ -21,7 +22,10 @@ class Post {
         return $this->body;
     }
 
-    public function getDate(): int {
+    public function getDate(): string {
         return $this->date;
+    }   
+    public function getImageUrl(): string {
+        return $this->image_url;
     }   
 }

@@ -36,13 +36,17 @@
              $posts = $params[posts];
             foreach($posts as $i => $post):
         ?>
+
              <article>
                 <h1><?php echo $post->getTitle(); ?></h1>
-                <h2>Posted 13th February 2014</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales at lorem a posuere. Phasellus sagittis ultrices sodales. Etiam justo velit, aliquam id porta vel, posuere ut ante. Nullam laoreet tincidunt sapien semper congue.
-                    Phasellus odio ipsum, iaculis sed condimentum vitae, posuere id mi. Donec at ultricies nisl, vitae aliquam tortor. Quisque hendrerit elementum consequat. Suspendisse justo nibh, consequat sed eros vel, blandit feugiat dui. Donec bibendum
-                    malesuada eros, id tincidunt nisi viverra nec.</p>
-                <img src="girlonrock.jpg" alt="girl on a rock on a mountain" width="800" height="500">
+                <h2><?php echo $post->getDate(); ?></h2>
+                <p><?php echo $post->getBody(); ?></p>
+
+                <?php if (!empty($post->getImageUrl())) {
+                    $url = $post->getImageUrl();
+                    echo "<img src='$url' width='800' height='500'>"; }
+                ?>
+
             </article>
             <aside>
                 <i class="fa fa-facepost" aria-hidden="true"></i>
