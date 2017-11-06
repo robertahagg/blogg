@@ -14,23 +14,18 @@
         "controller": "Posts",
         "method": "getAll"
     },
-    "post/:id": {
-        "controller": "Posts",
-        "method": "get",
-        "params": {
-            "id": "number"
-        }
-    },
     "posts/search": {
         "controller": "Posts",
         "method": "search"
     },
-    "customers": {
-        "controller": "Customer",
+
+
+    "admin": {
+        "controller": "Admin",
         "method": "getAll"
     },
-    "customer/:id": {
-        "controller": "Customer",
+    "admin/post/:id": {
+        "controller": "Admin",
         "method": "get",
         "params": {
             "id": "number"
