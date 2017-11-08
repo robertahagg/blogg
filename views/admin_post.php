@@ -9,29 +9,16 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Admin Lynn Dylan</title>
-    <link rel="stylesheet" type="text/css" href="adminpage.css">
+    <link rel="stylesheet" type="text/css" href="../../adminpage.css">
 </head>
 
 <body>
     <main>
     <header>
-        <form>
-            <input type="search" name="q" placeholder="Find posts">
-            <input type="submit" value="Search">
-        </form>
-        <nav>
-            <ul>
-                <i class="fa fa-user" aria-hidden="true"><p>Log out</p></i>
-            </ul>
-        </nav>
-        <h1> Welcome Lynn Dylan!
-            <p>&hearts;</p>
-        </h1>
-        <h2></h2>
-        <div class="image"></div>
-    </header>
-        <section>
-        <h2>Create new blog post</h2>
+    
+</header>
+<section>
+        <h2>Blog post #1</h2>
         <form class="post_form">
             <action="" method="post">
                     
@@ -55,47 +42,13 @@
   <input type="checkbox" name="category" value="Example"> Example
                 
                 <div class="button">
-                    <button type="submit">Publish</button>
-                    <button type="submit">Trash</button>
+                    <button type="submit">Update Post</button>
+                    <button type="submit">Delete Post</button>
                 </div>
             </action>
             </form>
     </section>
-    <section>
-        <h2>Dashboard for your posts</h2>
-        <table>
-            <tr>
-                <th>#id</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Author</th>
-                <th>Category</th>
-                <th>Tags</th>
-                <th>Status</th>
-            </tr>
-            <?php 
-             $posts = $params[posts];
-            foreach($posts as $i => $post):
-        ?>
-            <tr>
-                <td><a href="admin/posts/1"><?php echo $post->getId(); ?></a></td>
-                <td><?php echo $post->getTitle(); ?></td>
-                <td><?php echo $post->getDate(); ?></td>
-                <td><?php echo $post->getTitle(); ?></td>
-            </tr>
-            <?php endforeach; ?>
-
-        </table>
-    </section>
-
-    </main>
+</main>
 </body>
-<footer>
-    <a href="#" class="previous_button">&laquo; Previous</a>
-    <a href="#" class="next_button">Next &raquo;</a>
-</footer>
-
-</html>
-
-
-
+    <footer></footer>
+    </html>

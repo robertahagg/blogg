@@ -1,5 +1,6 @@
 h1,
-h2 {
+h2,
+h3 {
     font-family: 'Open Sans Condensed', sans-serif;
     color: black;
     font-weight: lighter;
@@ -20,8 +21,14 @@ h2 {
     text-decoration: underline;
 }
 
+h3 {
+    font-size: 25px;
+    letter-spacing: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
 form {
-    float: right;
     margin-right: 10px;
 }
 
@@ -61,6 +68,7 @@ a {
     letter-spacing: 10px;
 }
 
+div,
 section {
     padding-bottom: 20px;
     padding-top: 20px;
@@ -85,17 +93,24 @@ a:hover {
 
 label,
 .post_form {
-    display: center;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 20px;
-    padding: 15px;
+    padding: 10px;
     display: block;
 }
 
 tbody {
     font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing: 2px;
-    cursor: pointer;
+}
+
+.body_box {
+    width: 400px;
+    height: 140px;
+}
+
+.single_line_box {
+    width: 400px;
 }
 
 button {

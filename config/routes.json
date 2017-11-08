@@ -24,7 +24,7 @@
         "controller": "Admin",
         "method": "getAll"
     },
-    "admin/post/:id": {
+    "admin/posts/:id": {
         "controller": "Admin",
         "method": "get",
         "params": {

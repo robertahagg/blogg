@@ -42,7 +42,7 @@ class AdminController extends AbstractController
         }
 
         $properties = ['post' => $post];
-        return $this->render('views/post.php', $properties);
+        return $this->render('views/admin_post.php', $properties);
     }
 
     public function search(): string
@@ -59,68 +59,5 @@ class AdminController extends AbstractController
             'lastPage' => true
         ];
         return $this->render('views/posts.php', $properties);
-    }
-
-    public function getByUser(): string
-    {
-        $postModel = new PostModel();
-
-        $posts = $postModel->getByUser($this->customerId);
-
-        $properties = [
-            'posts' => $posts,
-            'currentPage' => 1,
-            'lastPage' => true
-        ];
-        return $this->render('views/posts.php', $properties);
-    }
-
-    public function borrow(int $postId): string
-    {
-        $postModel = new PostModel();
-
-        try {
-            $post = $postModel->get($postId);
-        } catch (NotFoundException $e) {
-            $params = ['errorMessage' => 'Post not found.'];
-            return $this->render('views/error.php', $params);
-        }
-
-        if (!$post->getCopy()) {
-            $params = ['errorMessage' => 'There are no copies left.'];
-            return $this->render('views/error.php', $params);
-        }
-
-        try {
-            $postModel->borrow($post, $this->customerId);
-        } catch (DbException $e) {
-            $params = ['errorMessage' => 'Error borrowing post.'];
-            return $this->render('views/error.php', $params);
-        }
-
-        return $this->getByUser();
-    }
-
-    public function returnPost(int $postId): string
-    {
-        $postModel = new PostModel();
-
-        try {
-            $post = $postModel->get($postId);
-        } catch (NotFoundException $e) {
-            $params = ['errorMessage' => 'Post not found.'];
-            return $this->render('views/error.php', $params);
-        }
-
-        $post->addCopy();
-
-        try {
-            $postModel->returnPost($post, $this->customerId);
-        } catch (DbException $e) {
-            $params = ['errorMessage' => 'Error borrowing post.'];
-            return $this->render('views/error.php', $params);
-        }
-
-        return $this->getByUser();
     }
 }
