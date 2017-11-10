@@ -15,18 +15,14 @@
 <body>
     <main>
     <header>
-        <form>
-            <input type="search" name="q" placeholder="Find posts">
-            <input type="submit" value="Search">
-        </form>
+        
+        <h1> Welcome Lynn Dylan!
+        </h1>
         <nav>
             <ul>
-                <i class="fa fa-user" aria-hidden="true"><p>Log out</p></i>
+            <input type="submit" value="Log out">
             </ul>
         </nav>
-        <h1> Welcome Lynn Dylan!
-            <p>&hearts;</p>
-        </h1>
         <h2></h2>
         <div class="image"></div>
     </header>
@@ -56,6 +52,7 @@
                 
                 <div class="button">
                     <button type="submit">Publish</button>
+                    <button type="submit">Save</button>
                     <button type="submit">Trash</button>
                 </div>
             </action>

@@ -8,14 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Admin Lynn Dylan</title>
+    <title>Post Lynn Dylan</title>
     <link rel="stylesheet" type="text/css" href="../../adminpage.css">
 </head>
 
 <body>
     <main>
     <header>
-    
 </header>
 <section>
         <h2>Blog post #1</h2>
@@ -50,5 +49,8 @@
     </section>
 </main>
 </body>
-    <footer></footer>
+    <footer>
+    <a href="#" class="previous_button">&laquo; Previous</a>
+    <a href="#" class="next_button">Next &raquo;</a>
+    </footer>
     </html>

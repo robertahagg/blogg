@@ -13,25 +13,34 @@
 </head>
 
 <body>
-    <header>
+<header>
+<form class="login" action="/login" method="post">
+<input type="text" name="username" placeholder="Username"><br>
+<input type="pasword" name="password" placeholder="Password"><br>
+<input type="submit" value="Submit">
 
-    </header>
+
+
+</form>
+</header>
+
     <form>
         <input type="search" name="q" placeholder="Find posts">
-        <input type="submit" value="Search">
+        <input type="submit" value="Search">      
     </form>
-    <nav>
+    
+    <main class="center_text"role="main">
+        <div class="image"></div>
+     
+        <section>
+        <nav>
         <ul>
-            <i class="fa fa-user" aria-hidden="true"></i>
             <li><a href="#contact">|Contact| </a>
                 <li><a href="#about"> About|</a>
+                <li><a href="#categories">Categories|</a>
+                
         </ul>
     </nav>
-    <main role="main">
-        <div class="image"></div>
-        <section>
-
-
         <?php 
              $posts = $params[posts];
             foreach($posts as $i => $post):
@@ -57,10 +66,11 @@
         <?php endforeach; ?>
 
         </section>
+        
     </main>
 </body>
 <footer>
-    <a href="#" class="previous_button">&laquo; Previous</a>
+<a href="#" class="previous_button">&laquo; Previous</a>
     <a href="#" class="next_button">Next &raquo;</a>
 </footer>
 

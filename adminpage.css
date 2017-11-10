@@ -11,6 +11,7 @@ h1 {
     text-transform: uppercase;
     margin-bottom: 0px;
     letter-spacing: 9px;
+    margin-top: 0px;
 }
 
 h2 {
@@ -115,4 +116,8 @@ tbody {
 
 button {
     cursor: pointer;
+}
+
+.main_search {
+    float: right;
 }
