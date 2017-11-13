@@ -16,7 +16,7 @@
     <main>
     <header>
         
-        <h1> Welcome Lynn Dylan!
+        <h1> Welcome Admin!
         </h1>
         <nav>
             <ul>
@@ -66,7 +66,7 @@
                 <th>Title</th>
                 <th>Date</th>
                 <th>Author</th>
-                <th>Category</th>
+                <th>Categories</th>
                 <th>Tags</th>
                 <th>Status</th>
             </tr>

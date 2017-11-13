@@ -15,9 +15,11 @@
 <body>
 <header>
 <form class="login" action="/login" method="post">
-<input type="text" name="username" placeholder="Username"><br>
+<input type="text" name="username" placeholder="Admin username"><br>
 <input type="pasword" name="password" placeholder="Password"><br>
 <input type="submit" value="Submit">
+<input type="submit" value="Register new user">
+
 
 
 

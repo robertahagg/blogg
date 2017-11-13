@@ -47,11 +47,11 @@ class AdminController extends AbstractController
 
     public function search(): string
     {
-        $title = $this->request->getParams()->getString('title');
-        $author = $this->request->getParams()->getString('author');
+        $categories = $this->request->getParams()->getString('categories');
+        $tags = $this->request->getParams()->getString('tags');
 
         $postModel = new PostModel();
-        $posts = $postModel->search($title, $author);
+        $posts = $postModel->search($categories, $tags);
 
         $properties = [
             'posts' => $posts,
@@ -60,4 +60,5 @@ class AdminController extends AbstractController
         ];
         return $this->render('views/posts.php', $properties);
     }
+   
 }

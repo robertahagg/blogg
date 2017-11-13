@@ -30,4 +30,5 @@ abstract class AbstractController
 
         return $renderedView;
     }
+  
 }

@@ -6,6 +6,7 @@ use Blog\Domain\Post;
 use Blog\Exceptions\DbException;
 use Blog\Exceptions\NotFoundException;
 use PDO;
+use Exeption;
 
 class PostModel extends AbstractModel
 {
@@ -38,17 +39,36 @@ class PostModel extends AbstractModel
         return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
     }
 
-    public function search(string $title, string $author): array
+    public function search(string $categories, string $tags): array
     {
         $query = <<<SQL
 SELECT * FROM posts
-WHERE title LIKE :title AND author LIKE :author
+WHERE categories LIKE :categories AND tags LIKE :tags
 SQL;
         $sth = $this->db->prepare($query);
-        $sth->bindValue('title', "%$title%");
-        $sth->bindValue('author', "%$author%");
+        $sth->bindValue('categories', "%$categories%");
+        $sth->bindValue('tags', "%$tags%");
         $sth->execute();
 
         return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
     }
+  public function register(array $formdata): string 
+  {
+$query = 'INSERT INTO users (firstname, lastname, username, email, password) VALUES (:firstname, :lastname, :username, :email, :password)';
+$sth = $this->db->prepare($query);
+$sth->bindParam(':firstname', $formdata['firstname']);
+$sth->bindParam(':lasttname', $formdata['lastname']);
+$sth->bindParam(':username', $formdata['username']);
+$sth->bindParam(':email', $formdata['email']);
+$sth->bindParam(':password', $formdata['password']);
+
+$success = '';
+
+if ($sth->execute()){
+    $success = 'true';
+}else{
+    throw new Exeption ('Something went wrong');
+}
+return $success;
+  }
 }

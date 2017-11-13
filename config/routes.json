@@ -3,6 +3,18 @@
         "controller": "Default",
         "method": "start"
     },
+    "login": {
+        "controller": "Posts",
+        "method": "login"
+    },
+    "logout": {
+        "controller": "Posts",
+        "method": "logout"
+    },
+    "register": {
+        "controller": "Posts",
+        "method": "register"
+    },
     "posts/:page": {
         "controller": "Posts",
         "method": "getAllWithPage",
@@ -17,9 +29,8 @@
     "posts/search": {
         "controller": "Posts",
         "method": "search"
+
     },
-
-
     "admin": {
         "controller": "Admin",
         "method": "getAll"
@@ -30,5 +41,6 @@
         "params": {
             "id": "number"
         }
+
     }
 }

@@ -10,6 +10,8 @@ class Post {
     private $image_url;
     
 
+    
+
     public function getId(): int {
         return $this->id;
     }
@@ -27,5 +29,6 @@ class Post {
     }   
     public function getImageUrl(): string {
         return $this->image_url;
-    }   
+    } 
+      
 }

@@ -32,11 +32,11 @@ class PostsController extends AbstractController
 
     public function search(): string
     {
-        $title = $this->request->getParams()->getString('title');
-        $author = $this->request->getParams()->getString('author');
+        $categories = $this->request->getParams()->getString('categories');
+        $tags = $this->request->getParams()->getString('tags');
 
         $postModel = new PostModel();
-        $posts = $postModel->search($title, $author);
+        $posts = $postModel->search($categories, $tags);
 
         $properties = [
             'posts' => $posts,
@@ -44,5 +44,28 @@ class PostsController extends AbstractController
             'lastPage' => true
         ];
         return $this->render('views/posts.php', $properties);
+        
     }
+    public function register()
+    {
+        if ($this->request->isGet()){
+return $this->render('views/register.php',[]);
+} else if ($this->request->isPost()) {
+    $params = $this->request->getParams();
+
+    $postModel = new PostModel();
+    $properties = [
+        'firstname'=> $params->get('firstname'),
+        'lastname'=> $params->get('lastname'),
+        'username'=> $params->get('username'),
+        'email'=> $params->get('email'),
+        'password'=> $params->get('password')
+    ]; 
+
+    $postModel->register($properties);
+
+}
+ }
+
+
 }
