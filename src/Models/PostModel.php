@@ -1,5 +1,4 @@
 <?php
-
 namespace Blog\Models;
 
 use Blog\Domain\Post;
@@ -12,7 +11,7 @@ class PostModel extends AbstractModel
 {
     const CLASSNAME = '\Blog\Domain\Post';
 
-    public function get(int $postId): Post
+    public function get(int $postId) : Post
     {
         $query = 'SELECT * FROM posts WHERE id = :id';
         $sth = $this->db->prepare($query);
@@ -26,7 +25,7 @@ class PostModel extends AbstractModel
         return $posts[0];
     }
 
-    public function getAll(int $page, int $pageLength): array
+    public function getAll(int $page, int $pageLength) : array
     {
         $start = $pageLength * ($page - 1);
 
@@ -39,7 +38,7 @@ class PostModel extends AbstractModel
         return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
     }
 
-    public function search(string $categories, string $tags): array
+    public function search(string $categories, string $tags) : array
     {
         $query = <<<SQL
 SELECT * FROM posts
@@ -52,23 +51,25 @@ SQL;
 
         return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
     }
-  public function register(array $formdata): string 
-  {
-$query = 'INSERT INTO users (firstname, lastname, username, email, password) VALUES (:firstname, :lastname, :username, :email, :password)';
-$sth = $this->db->prepare($query);
-$sth->bindParam(':firstname', $formdata['firstname']);
-$sth->bindParam(':lasttname', $formdata['lastname']);
-$sth->bindParam(':username', $formdata['username']);
-$sth->bindParam(':email', $formdata['email']);
-$sth->bindParam(':password', $formdata['password']);
 
-$success = '';
+    public function register(array $formdata) : string
+    {
+        $query = "INSERT INTO users (firstname, lastname, username, email, password) VALUES (:firstname, :lastname, :username, :email, :password)";
+        $sth = $this->db->prepare($query);
+        $sth->bindParam(':firstname', $formdata['firstname']);
+        $sth->bindParam(':lastname', $formdata['lastname']);
+        $sth->bindParam(':username', $formdata['username']);
+        $sth->bindParam(':email', $formdata['email']);
+        $sth->bindParam(':password', $formdata['password']);
 
-if ($sth->execute()){
-    $success = 'true';
-}else{
-    throw new Exeption ('Something went wrong');
-}
-return $success;
-  }
+        $success = '';
+
+        if ($sth->execute()) {
+            $success = 'true';
+        } else {
+            throw new Exeption('Something went wrong');
+        }
+
+        return $success;
+    }
 }

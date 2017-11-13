@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Post Lynn Dylan</title>
+    <title>Register new account Lynn Dylan</title>
     <link rel="stylesheet" type="text/css" href="../../adminpage.css">
 </head>
 
@@ -20,8 +20,7 @@
     </h1>
 </header>
 <section>
-        <form class="post_form">
-            <action="/register" method="post">
+        <form class="post_form" action="/register" method="post">
             
             <label><b>Firstname</b></label>
             <input type="text" placeholder="Enter your first name" name="firstname" required>        
