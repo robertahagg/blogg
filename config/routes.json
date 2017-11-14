@@ -29,9 +29,9 @@
     "posts/search": {
         "controller": "Posts",
         "method": "search"
-
     },
     "admin": {
+        "login": true,
         "controller": "Admin",
         "method": "getAll"
     },
@@ -41,6 +41,5 @@
         "params": {
             "id": "number"
         }
-
     }
 }

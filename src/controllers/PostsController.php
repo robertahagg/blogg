@@ -62,6 +62,8 @@ class PostsController extends AbstractController
             ];
 
             $postModel->register($properties);
+            $username = $params->get('username');
+            setcookie("user", "$username");
 
             $this->redirect("admin");
         }
