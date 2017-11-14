@@ -3,10 +3,6 @@
         "controller": "Default",
         "method": "start"
     },
-    "login": {
-        "controller": "Posts",
-        "method": "login"
-    },
     "logout": {
         "controller": "Posts",
         "method": "logout"
@@ -22,9 +18,9 @@
             "page": "number"
         }
     },
-    "posts": {
+    "": {
         "controller": "Posts",
-        "method": "getAll"
+        "method": "handleRequest"
     },
     "posts/search": {
         "controller": "Posts",

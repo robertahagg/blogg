@@ -14,20 +14,25 @@
 
 <body>
 <header>
-<form class="login" action="/login" method="post">
+
+<form class="login" method="post">
 <input type="text" name="username" placeholder="Admin username"><br>
 <input type="pasword" name="password" placeholder="Password"><br>
-<input type="submit" value="Submit">
+<input type="submit" value="Login">
 <input type="submit" value="Register new user">
-
-
-
-
 </form>
+
+<p class="errorMessageStyle">
+<?php 
+$errorLogin = $params['ErrorMessage'];
+echo $errorLogin;
+?>
+</p>
+
 </header>
 
     <form>
-        <input type="search" name="q" placeholder="Find posts">
+        <input type="search" name="q" placeholder="Find posts by tags">
         <input type="submit" value="Search">      
     </form>
     
@@ -44,8 +49,8 @@
         </ul>
     </nav>
         <?php 
-             $posts = $params[posts];
-            foreach($posts as $i => $post):
+        $posts = $params[posts];
+        foreach ($posts as $i => $post) :
         ?>
 
              <article>
@@ -55,7 +60,8 @@
 
                 <?php if (!empty($post->getImageUrl())) {
                     $url = $post->getImageUrl();
-                    echo "<img src='$url' width='800' height='500'>"; }
+                    echo "<img src='$url' width='800' height='500'>";
+                }
                 ?>
 
             </article>

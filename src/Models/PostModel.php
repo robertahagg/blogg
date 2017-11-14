@@ -4,8 +4,10 @@ namespace Blog\Models;
 use Blog\Domain\Post;
 use Blog\Exceptions\DbException;
 use Blog\Exceptions\NotFoundException;
+use Blog\Utils\Password;
 use PDO;
 use Exeption;
+use Blog\Domain\Users;
 
 class PostModel extends AbstractModel
 {
@@ -60,7 +62,7 @@ SQL;
         $sth->bindParam(':lastname', $formdata['lastname']);
         $sth->bindParam(':username', $formdata['username']);
         $sth->bindParam(':email', $formdata['email']);
-        $sth->bindParam(':password', $formdata['password']);
+        $sth->bindParam(':password', Password::hash($formdata['password']));
 
         $success = '';
 
@@ -72,4 +74,22 @@ SQL;
 
         return $success;
     }
+
+    public function hasUserWithPassword(string $username, $password) : bool
+    {
+        $query = 'SELECT * FROM users WHERE username = :username AND password = :password';
+        $sth = $this->db->prepare($query);
+
+        $sth->bindParam(':username', $username);
+        $sth->bindParam(':password', $password);
+
+        if (!$sth->execute()) {
+            throw new Exeption('Something went wrong');
+        }
+
+        $row = $sth->fetch();
+
+        return !empty($row);
+    }
 }
+

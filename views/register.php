@@ -46,5 +46,6 @@
 </main>
 </body>
     <footer>
+    <a href="#" class="previous_button">&laquo; Exit</a>
     </footer>
     </html>
