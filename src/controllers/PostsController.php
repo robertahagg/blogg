@@ -79,14 +79,6 @@ class PostsController extends AbstractController
         }
     }
 
-    function redirect($url)
-    {
-        ob_start();
-        header('Location: ' . $url);
-        ob_end_flush();
-        die();
-    }
-
     public function login() : string
     {
         if (!$this->request->isPost()) {
@@ -114,4 +106,5 @@ class PostsController extends AbstractController
             return $this->render('views/posts.php', $params);
         }
     }
+
 }

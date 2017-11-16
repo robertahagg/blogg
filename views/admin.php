@@ -20,7 +20,7 @@
         </h1>
         <nav>
             <ul>
-            <input type="submit" value="Log out">
+            <a class="logout" href="/logout">Log out</a>
             </ul>
         </nav>
         <h2></h2>
@@ -71,9 +71,9 @@
                 <th>Status</th>
             </tr>
             <?php 
-             $posts = $params[posts];
-            foreach($posts as $i => $post):
-        ?>
+            $posts = $params[posts];
+            foreach ($posts as $i => $post) :
+            ?>
             <tr>
                 <td><a href="admin/posts/1"><?php echo $post->getId(); ?></a></td>
                 <td><?php echo $post->getTitle(); ?></td>

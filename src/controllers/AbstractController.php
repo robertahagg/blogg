@@ -1,5 +1,4 @@
 <?php
-
 namespace Blog\Controllers;
 
 use Blog\Core\Request;
@@ -20,7 +19,7 @@ abstract class AbstractController
         $this->customerId = $customerId;
     }
 
-    protected function render(string $template, array $params): string
+    protected function render(string $template, array $params) : string
     {
         extract($params);
 
@@ -30,5 +29,12 @@ abstract class AbstractController
 
         return $renderedView;
     }
-  
+
+    function redirect($url)
+    {
+        ob_start();
+        header('Location: ' . $url);
+        ob_end_flush();
+        die();
+    }
 }

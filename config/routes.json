@@ -4,7 +4,8 @@
         "method": "start"
     },
     "logout": {
-        "controller": "Posts",
+        "login": true,
+        "controller": "Admin",
         "method": "logout"
     },
     "register": {

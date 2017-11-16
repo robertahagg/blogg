@@ -1,5 +1,4 @@
 <?php
-
 namespace Blog\Controllers;
 
 use Blog\Exceptions\DbException;
@@ -10,7 +9,7 @@ class AdminController extends AbstractController
 {
     const PAGE_LENGTH = 4;
 
-    public function getAllWithPage($page): string
+    public function getAllWithPage($page) : string
     {
         $page = (int)$page;
         $postModel = new PostModel();
@@ -25,12 +24,12 @@ class AdminController extends AbstractController
         return $this->render('views/admin.php', $properties);
     }
 
-    public function getAll(): string
+    public function getAll() : string
     {
         return $this->getAllWithPage(1);
     }
 
-    public function get(int $postId): string
+    public function get(int $postId) : string
     {
         $postModel = new PostModel();
 
@@ -45,7 +44,7 @@ class AdminController extends AbstractController
         return $this->render('views/admin_post.php', $properties);
     }
 
-    public function search(): string
+    public function search() : string
     {
         $categories = $this->request->getParams()->getString('categories');
         $tags = $this->request->getParams()->getString('tags');
@@ -60,5 +59,11 @@ class AdminController extends AbstractController
         ];
         return $this->render('views/posts.php', $properties);
     }
-   
+
+    public function logout() : string
+    {
+        setcookie('user', '', time() - 5000);
+
+        return $this->redirect("/");
+    }
 }
