@@ -12,6 +12,11 @@
         "controller": "Posts",
         "method": "register"
     },
+    "posts/": {
+        "login": true,
+        "controller": "Admin",
+        "method": "newPost"
+    },
     "posts/:page": {
         "controller": "Posts",
         "method": "getAllWithPage",

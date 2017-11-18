@@ -82,19 +82,3 @@ a {
     color: black;
     margin-left: 20px;
 }
-
-i,
-a:hover {
-    cursor: pointer;
-}
-
-footer {
-    width: 100%;
-}
-
-.errorMessageStyle {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: 20px;
-    letter-spacing: 1px;
-    color: rebeccapurple;
-}

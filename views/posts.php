@@ -43,11 +43,11 @@ echo $errorLogin;
         <nav>
         <ul>
             <li><a href="#contact">|Contact| </a>
-                <li><a href="#about"> About|</a>
+                <li><a href="#about"> About|</a> 
                 <li><a href="#categories">Categories|</a>
-                
         </ul>
     </nav>
+   
         <?php 
         $posts = $params[posts];
         foreach ($posts as $i => $post) :

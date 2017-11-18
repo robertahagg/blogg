@@ -14,43 +14,48 @@
 
 <body>
     <main>
-    <header>
-</header>
-<section>
-        <h2>Blog post #1</h2>
-        <form class="post_form">
-            <action="" method="post">
-                    
-                    <label for="title">Title:</label> 
-                    <input class="single_line_box"type="text" id="" name="title">
-                
-                    <label for="msg">Body:</label> 
-                    <textarea class="body_box"id="" name="user_message"></textarea>
-            
-                    <label for="media_url">Media url:</label> 
-                    <input class="single_line_box"type="media" id="" name="media_url">
+        <header>
+        </header>
+        <section>
+            <h2>Blog post #1</h2>
+            <form class="post_form" action="/posts" method="post">
 
-                    <label for="tags">Tags:</label> 
-                    <input class="single_line_box"type="tags" id="tags" name="tags">
-                
-                    <label for="category">Categories:</label> 
-                    <form action="/action_page.php" method="get">
-  <input type="checkbox" name="category" value="Example"> Example
-  <input type="checkbox" name="category" value="Example"> Example
-  <input type="checkbox" name="category" value="Example"> Example
-  <input type="checkbox" name="category" value="Example"> Example
-                
-                <div class="button">
-                    <button type="submit">Update Post</button>
-                    <button type="submit">Delete Post</button>
-                </div>
-            </action>
-            </form>
-    </section>
-</main>
+                <label for="title">Title:</label>
+                <input class="single_line_box" type="text" id="" name="title">
+
+                <label for="msg">Body:</label>
+                <textarea class="body_box" id="" name="user_message"></textarea>
+
+                <label for="media_url">Media url:</label>
+                <input class="single_line_box" type="media" id="" name="media_url">
+
+
+                <form><label for="category">Categories:</label>
+                    <input type="radio" name="category" value="travel"> Travel
+                    <input type="radio" name="category" value="Fashion"> Fashion
+                    <input type="radio" name="category" value="Inspiration"> Inspiration
+                    <input type="radio" name="category" value="General"> General
+                </form>
+
+                <label for="category">Tags:</label>
+                <form action="/action_page.php" method="get">
+                    <input type="checkbox" name="category" value="Example"> Example
+                    <input type="checkbox" name="category" value="Example"> Example
+                    <input type="checkbox" name="category" value="Example"> Example
+                    <input type="checkbox" name="category" value="Example"> Example
+
+                    <div class="button">
+                        <button type="submit">Update Post</button>
+                        <button type="submit">Delete Post</button>
+                    </div>
+                    </action>
+                </form>
+        </section>
+    </main>
 </body>
-    <footer>
+<footer>
     <a href="#" class="previous_button">&laquo; Previous</a>
     <a href="#" class="next_button">Next &raquo;</a>
-    </footer>
-    </html>
+</footer>
+
+</html>

@@ -28,8 +28,7 @@
     </header>
         <section>
         <h2>Create new blog post</h2>
-        <form class="post_form">
-            <action="" method="post">
+            <form class="post_form" action="/posts" method="post">
                     
                     <label for="title">Title:</label> 
                     <input class="single_line_box"type="text" id="" name="title">
@@ -40,10 +39,15 @@
                     <label for="media_url">Media url:</label> 
                     <input class="single_line_box"type="media" id="" name="media_url">
 
-                    <label for="tags">Tags:</label> 
-                    <input class="single_line_box"type="tags" id="tags" name="tags">
+
+                    <form><label for="category">Categories:</label> 
+  <input type="radio" name="category" value="1"> Travel
+  <input type="radio" name="category" value="2"> Fashion
+  <input type="radio" name="category" value="4"> Inspiration
+  <input type="radio" name="category" value="3"> General
+</form> 
                 
-                    <label for="category">Categories:</label> 
+                    <label for="category">Tags:</label> 
                     <form action="/action_page.php" method="get">
   <input type="checkbox" name="category" value="Example"> Example
   <input type="checkbox" name="category" value="Example"> Example

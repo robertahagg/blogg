@@ -46,11 +46,11 @@ class AdminController extends AbstractController
 
     public function search() : string
     {
-        $categories = $this->request->getParams()->getString('categories');
+        $categories = $this->request->getParams()->getString('tags');
         $tags = $this->request->getParams()->getString('tags');
 
         $postModel = new PostModel();
-        $posts = $postModel->search($categories, $tags);
+        $posts = $postModel->search($tags);
 
         $properties = [
             'posts' => $posts,
@@ -65,5 +65,26 @@ class AdminController extends AbstractController
         setcookie('user', '', time() - 5000);
 
         return $this->redirect("/");
+    }
+
+    public function newPost()
+    {
+        if ($this->request->isGet()) {
+            return $this->redirect("admin");
+        } else if ($this->request->isPost()) {
+            $params = $this->request->getParams();
+
+            $adminModel = new AdminModel();
+            $properties = [
+                'title' => $params->get('title'),
+                'body' => $params->get('body'),
+                'date' => $params->get('date'),
+                'image_url' => $params->get('image_url'),
+                'categories' => $params->get('categories'),
+                'tags' => $params->get('tags')
+
+            ];
+            $adminModel->newPost($properties);
+        }
     }
 }

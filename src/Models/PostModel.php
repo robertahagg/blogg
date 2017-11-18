@@ -40,14 +40,13 @@ class PostModel extends AbstractModel
         return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
     }
 
-    public function search(string $categories, string $tags) : array
+    public function search(string $tags) : array
     {
         $query = <<<SQL
 SELECT * FROM posts
-WHERE categories LIKE :categories AND tags LIKE :tags
+WHERE categories LIKE :tags LIKE :tags
 SQL;
         $sth = $this->db->prepare($query);
-        $sth->bindValue('categories', "%$categories%");
         $sth->bindValue('tags', "%$tags%");
         $sth->execute();
 

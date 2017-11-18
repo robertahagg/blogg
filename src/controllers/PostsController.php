@@ -41,11 +41,10 @@ class PostsController extends AbstractController
 
     public function search() : string
     {
-        $categories = $this->request->getParams()->getString('categories');
         $tags = $this->request->getParams()->getString('tags');
 
         $postModel = new PostModel();
-        $posts = $postModel->search($categories, $tags);
+        $posts = $postModel->search($tags);
 
         $properties = [
             'posts' => $posts,
@@ -106,5 +105,6 @@ class PostsController extends AbstractController
             return $this->render('views/posts.php', $params);
         }
     }
+
 
 }
