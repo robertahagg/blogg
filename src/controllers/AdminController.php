@@ -5,6 +5,7 @@ use Blog\Exceptions\DbException;
 use Blog\Exceptions\NotFoundException;
 use Blog\Models\PostModel;
 use Blog\Models\AdminModel;
+use Blog\Models\CategoryModel;
 
 class AdminController extends AbstractController
 {
@@ -65,13 +66,22 @@ class AdminController extends AbstractController
     {
         setcookie('user', '', time() - 5000);
 
-        return $this->redirect("/blogg");
+        return $this->redirect("/blogg/");
     }
 
     public function newPost() : string
     {
         if ($this->request->isGet()) {
-            return $this->render('views/admin_post.php', []);
+
+            $categoryModel = new CategoryModel();
+            $categories = $categoryModel->getAll();
+
+            $properties = [
+                'categories' => $categories
+            ];
+
+            return $this->render('views/admin_post.php', $properties);
+
         } else if ($this->request->isPost()) {
             $params = $this->request->getParams();
 
@@ -81,7 +91,6 @@ class AdminController extends AbstractController
             $properties = [
                 'title' => $params->get('title'),
                 'body' => $params->get('body'),
-     //           'date' => $params->get('date'),
                 'image_url' => $params->get('image_url'),
                 'category' => $params->get('category'),
                 'tags' => $params->get('tags')

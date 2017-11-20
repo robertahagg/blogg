@@ -24,7 +24,7 @@
             "page": "number"
         }
     },
-    "blogg": {
+    "blogg/": {
         "controller": "Posts",
         "method": "handleRequest"
     },

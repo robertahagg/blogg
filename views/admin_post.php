@@ -30,12 +30,16 @@
                 <input class="single_line_box" type="url" id="" name="image_url">
 
 
+
                <label for="category">Categories:</label>
-                    <input type="radio" name="category" value="travel"> Travel
-                    <input type="radio" name="category" value="Fashion"> Fashion
-                    <input type="radio" name="category" value="Inspiration"> Inspiration
-                    <input type="radio" name="category" value="General"> General
-         
+               <?php 
+                $categories = $params[categories];
+                foreach ($categories as $i => $category) :
+                ?>
+                  <input type="radio" name="category" value="<?php echo $category->getId(); ?>"> 
+                  <?php echo $category->getName(); ?>
+
+            <?php endforeach; ?>
 
                 <label for="tags">Tags:</label>
                     <input type="checkbox" name="tags" value="Example"> Example
