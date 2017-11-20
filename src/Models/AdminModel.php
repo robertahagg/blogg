@@ -2,11 +2,8 @@
 namespace Blog\Models;
 
 use Blog\Domain\Admin;
-use Blog\Exceptions\DbException;
-use Blog\Exceptions\NotFoundException;
 use PDO;
-use Exeption;
-use Blog\Domain\Admin;
+use Exception;
 
 class AdminModel extends AbstractModel
 {
@@ -29,7 +26,7 @@ class AdminModel extends AbstractModel
         if ($sth->execute()) {
             $success = 'true';
         } else {
-            throw new Exeption('Something went wrong');
+            throw new Exception('Something went wrong');
         }
 
         return $success;

@@ -27,40 +27,8 @@
         <div class="image"></div>
     </header>
         <section>
-        <h2>Create new blog post</h2>
-            <form class="post_form" action="/posts" method="post">
-                    
-                    <label for="title">Title:</label> 
-                    <input class="single_line_box"type="text" id="" name="title">
-                
-                    <label for="msg">Body:</label> 
-                    <textarea class="body_box"id="" name="user_message"></textarea>
+        <a href="/newPost">Create a new post</a>
             
-                    <label for="media_url">Media url:</label> 
-                    <input class="single_line_box"type="media" id="" name="media_url">
-
-
-                    <form><label for="category">Categories:</label> 
-  <input type="radio" name="category" value="1"> Travel
-  <input type="radio" name="category" value="2"> Fashion
-  <input type="radio" name="category" value="4"> Inspiration
-  <input type="radio" name="category" value="3"> General
-</form> 
-                
-                    <label for="category">Tags:</label> 
-                    <form action="/action_page.php" method="get">
-  <input type="checkbox" name="category" value="Example"> Example
-  <input type="checkbox" name="category" value="Example"> Example
-  <input type="checkbox" name="category" value="Example"> Example
-  <input type="checkbox" name="category" value="Example"> Example
-                
-                <div class="button">
-                    <button type="submit">Publish</button>
-                    <button type="submit">Save</button>
-                    <button type="submit">Trash</button>
-                </div>
-            </action>
-            </form>
     </section>
     <section>
         <h2>Dashboard for your posts</h2>

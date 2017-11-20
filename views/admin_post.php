@@ -18,7 +18,7 @@
         </header>
         <section>
             <h2>Blog post #1</h2>
-            <form class="post_form" action="/posts" method="post">
+            <form class="post_form" action="/newPost" method="post">
 
                 <label for="title">Title:</label>
                 <input class="single_line_box" type="text" id="" name="title">
@@ -30,26 +30,24 @@
                 <input class="single_line_box" type="media" id="" name="media_url">
 
 
-                <form><label for="category">Categories:</label>
+               <label for="category">Categories:</label>
                     <input type="radio" name="category" value="travel"> Travel
                     <input type="radio" name="category" value="Fashion"> Fashion
                     <input type="radio" name="category" value="Inspiration"> Inspiration
                     <input type="radio" name="category" value="General"> General
-                </form>
+         
 
                 <label for="category">Tags:</label>
-                <form action="/action_page.php" method="get">
                     <input type="checkbox" name="category" value="Example"> Example
                     <input type="checkbox" name="category" value="Example"> Example
                     <input type="checkbox" name="category" value="Example"> Example
                     <input type="checkbox" name="category" value="Example"> Example
 
                     <div class="button">
-                        <button type="submit">Update Post</button>
-                        <button type="submit">Delete Post</button>
+                        <button type="submit">Create Post</button>
+                  
                     </div>
                     </action>
-                </form>
         </section>
     </main>
 </body>

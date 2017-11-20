@@ -1,43 +1,43 @@
 {
-    "start": {
+    "blogg/start": {
         "controller": "Default",
         "method": "start"
     },
-    "logout": {
+    "blogg/logout": {
         "login": true,
         "controller": "Admin",
         "method": "logout"
     },
-    "register": {
+    "blogg/register": {
         "controller": "Posts",
         "method": "register"
     },
-    "posts/": {
+    "blogg/newPost": {
         "login": true,
         "controller": "Admin",
         "method": "newPost"
     },
-    "posts/:page": {
+    "blogg/posts/:page": {
         "controller": "Posts",
         "method": "getAllWithPage",
         "params": {
             "page": "number"
         }
     },
-    "": {
+    "blogg/": {
         "controller": "Posts",
         "method": "handleRequest"
     },
-    "posts/search": {
+    "blogg/posts/search": {
         "controller": "Posts",
         "method": "search"
     },
-    "admin": {
+    "blogg/admin": {
         "login": true,
         "controller": "Admin",
         "method": "getAll"
     },
-    "admin/posts/:id": {
+    "blogg/admin/posts/:id": {
         "controller": "Admin",
         "method": "get",
         "params": {

@@ -4,6 +4,7 @@ namespace Blog\Controllers;
 use Blog\Exceptions\DbException;
 use Blog\Exceptions\NotFoundException;
 use Blog\Models\PostModel;
+use Blog\Models\AdminModel;
 
 class AdminController extends AbstractController
 {
@@ -67,10 +68,10 @@ class AdminController extends AbstractController
         return $this->redirect("/");
     }
 
-    public function newPost()
+    public function newPost() : string
     {
         if ($this->request->isGet()) {
-            return $this->redirect("admin");
+            return $this->render('views/admin_post.php', []);
         } else if ($this->request->isPost()) {
             $params = $this->request->getParams();
 
@@ -82,9 +83,11 @@ class AdminController extends AbstractController
                 'image_url' => $params->get('image_url'),
                 'categories' => $params->get('categories'),
                 'tags' => $params->get('tags')
-
             ];
-            $adminModel->newPost($properties);
+
+            var_dump($properties);
+
+            return $adminModel->newPost($properties);
         }
     }
 }
