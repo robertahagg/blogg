@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Blog Lynn Dylan</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
@@ -45,8 +45,10 @@ echo $errorLogin;
             <li><a href="#contact">|Contact| </a>
                 <li><a href="#about"> About|</a> 
                 <li><a href="#categories">Categories|</a>
+                <li><a href="#tags">Tags|</a>
         </ul>
     </nav>
+  
    
         <?php 
         $posts = $params[posts];

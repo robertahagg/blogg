@@ -65,7 +65,7 @@ class AdminController extends AbstractController
     {
         setcookie('user', '', time() - 5000);
 
-        return $this->redirect("/");
+        return $this->redirect("/blogg");
     }
 
     public function newPost() : string
@@ -75,13 +75,15 @@ class AdminController extends AbstractController
         } else if ($this->request->isPost()) {
             $params = $this->request->getParams();
 
+            var_dump($params);
+
             $adminModel = new AdminModel();
             $properties = [
                 'title' => $params->get('title'),
                 'body' => $params->get('body'),
-                'date' => $params->get('date'),
+     //           'date' => $params->get('date'),
                 'image_url' => $params->get('image_url'),
-                'categories' => $params->get('categories'),
+                'category' => $params->get('category'),
                 'tags' => $params->get('tags')
             ];
 

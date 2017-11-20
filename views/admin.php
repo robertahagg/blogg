@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Admin Lynn Dylan</title>
-    <link rel="stylesheet" type="text/css" href="adminpage.css">
+    <link rel="stylesheet" type="text/css" href="/adminpage.css">
 </head>
 
 <body>
@@ -20,14 +20,14 @@
         </h1>
         <nav>
             <ul>
-            <a class="logout" href="/logout">Log out</a>
+            <a class="logout" href="logout">Log out</a>
             </ul>
         </nav>
         <h2></h2>
         <div class="image"></div>
     </header>
         <section>
-        <a href="/newPost">Create a new post</a>
+        <a href="newPost">Create a new post</a>
             
     </section>
     <section>

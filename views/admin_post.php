@@ -17,17 +17,17 @@
         <header>
         </header>
         <section>
-            <h2>Blog post #1</h2>
-            <form class="post_form" action="/newPost" method="post">
+            <h2>New blog post</h2>
+            <form class="post_form" action="newPost" method="post">
 
                 <label for="title">Title:</label>
                 <input class="single_line_box" type="text" id="" name="title">
 
-                <label for="msg">Body:</label>
-                <textarea class="body_box" id="" name="user_message"></textarea>
+                <label for="body">Body:</label>
+                <textarea class="body_box" id="" name="body"></textarea>
 
-                <label for="media_url">Media url:</label>
-                <input class="single_line_box" type="media" id="" name="media_url">
+                <label for="image_url">Media url:</label>
+                <input class="single_line_box" type="url" id="" name="image_url">
 
 
                <label for="category">Categories:</label>
@@ -37,11 +37,11 @@
                     <input type="radio" name="category" value="General"> General
          
 
-                <label for="category">Tags:</label>
-                    <input type="checkbox" name="category" value="Example"> Example
-                    <input type="checkbox" name="category" value="Example"> Example
-                    <input type="checkbox" name="category" value="Example"> Example
-                    <input type="checkbox" name="category" value="Example"> Example
+                <label for="tags">Tags:</label>
+                    <input type="checkbox" name="tags" value="Example"> Example
+                    <input type="checkbox" name="tags" value="Example"> Example
+                    <input type="checkbox" name="tags" value="Example"> Example
+                    <input type="checkbox" name="tags" value="Example"> Example
 
                     <div class="button">
                         <button type="submit">Create Post</button>
