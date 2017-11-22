@@ -5,6 +5,7 @@ use Blog\Exceptions\DbException;
 use Blog\Exceptions\NotFoundException;
 use Blog\Models\PostModel;
 use Blog\Models\AdminModel;
+use Blog\Models\TagModel;
 use Blog\Models\CategoryModel;
 
 class AdminController extends AbstractController
@@ -76,8 +77,12 @@ class AdminController extends AbstractController
             $categoryModel = new CategoryModel();
             $categories = $categoryModel->getAll();
 
+            $tagModel = new TagModel();
+            $tags = $tagModel->getAll();
+
             $properties = [
-                'categories' => $categories
+                'categories' => $categories,
+                'tags' => $tags
             ];
 
             return $this->render('views/admin_post.php', $properties);
@@ -93,12 +98,16 @@ class AdminController extends AbstractController
                 'body' => $params->get('body'),
                 'image_url' => $params->get('image_url'),
                 'category' => $params->get('category'),
-                'tags' => $params->get('tags')
+                'tag' => $params->get('tag')
             ];
 
             var_dump($properties);
 
             return $adminModel->newPost($properties);
         }
+    }
+    public function editPost() : string
+    {
+
     }
 }

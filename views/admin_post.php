@@ -41,11 +41,15 @@
 
             <?php endforeach; ?>
 
-                <label for="tags">Tags:</label>
-                    <input type="checkbox" name="tags" value="Example"> Example
-                    <input type="checkbox" name="tags" value="Example"> Example
-                    <input type="checkbox" name="tags" value="Example"> Example
-                    <input type="checkbox" name="tags" value="Example"> Example
+                <label for="tag">Tags:</label>
+                <?php 
+                $tags = $params[tags];
+                foreach ($tags as $i => $tag) :
+                ?>
+                  <input type="checkbox" name="tag" value="<?php echo $tag->getId(); ?>"> 
+                  #<?php echo $tag->getName(); ?>
+
+            <?php endforeach; ?>
 
                     <div class="button">
                         <button type="submit">Create Post</button>

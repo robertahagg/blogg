@@ -17,6 +17,11 @@
         "controller": "Admin",
         "method": "newPost"
     },
+    "blogg/editPost": {
+        "login": true,
+        "controller": "Admin",
+        "method": "editPost"
+    },
     "blogg/posts/:page": {
         "controller": "Posts",
         "method": "getAllWithPage",
