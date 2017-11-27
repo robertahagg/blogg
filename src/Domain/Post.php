@@ -8,7 +8,7 @@ class Post
     private $body;
     private $date;
     private $image_url;
-    private $categories;
+    private $category_name;
     private $tags;
 
 
@@ -39,9 +39,9 @@ class Post
         return $this->image_url;
     }
 
-    public function getCategories() : string
+    public function getCategory() : string
     {
-        return $this->categories;
+        return $this->category_name;
     }
 
     public function getTags() : string

@@ -31,7 +31,7 @@ class PostModel extends AbstractModel
     {
         $start = $pageLength * ($page - 1);
 
-        $query = 'SELECT * FROM posts LIMIT :page, :length';
+        $query = 'SELECT posts.*, categories.name as category_name FROM posts INNER JOIN categories ON categories.id = posts.category ORDER BY id LIMIT :page, :length';
         $sth = $this->db->prepare($query);
         $sth->bindParam('page', $start, PDO::PARAM_INT);
         $sth->bindParam('length', $pageLength, PDO::PARAM_INT);

@@ -70,8 +70,10 @@ echo $errorLogin;
                 <?php if (!empty($post->getImageUrl())) {
                     $url = $post->getImageUrl();
                     echo "<img src='$url' width='800' height='500'>";
-                }
-                ?>
+                } ?>
+                
+                <p><?php echo $post->getCategory(); ?></p>
+               
 
             </article>
             <aside>
