@@ -32,7 +32,7 @@ echo $errorLogin;
 </header>
 
     <form>
-        <input type="search" name="q" placeholder="Find posts by tags">
+        <input type="search" name="tag" placeholder="Find posts by tags">
         <input type="submit" value="Search">      
     </form>
     
@@ -40,16 +40,23 @@ echo $errorLogin;
         <div class="image"></div>
      
         <section>
-        <nav>
+        <nav id="primary_nav_wrap">
         <ul>
             <li><a href="#contact">|Contact| </a>
-                <li><a href="#about"> About|</a> 
+                <li><a href="#about"> About|</a>
                 <li><a href="#categories">Categories|</a>
-                <li><a href="#tags">Tags|</a>
+                <ul>
+      <li><a href="travel">Travel</a></li>
+      <li><a href="fashion">Fashion</a></li>
+      <li><a href="general">General</a></li>
+      <li><a href="inspiration">Inspiration</a>
+
         </ul>
     </nav>
-  
-   
+    </section>
+        
+    <section>
+
         <?php 
         $posts = $params[posts];
         foreach ($posts as $i => $post) :
