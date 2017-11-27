@@ -46,7 +46,7 @@
                 $tags = $params[tags];
                 foreach ($tags as $i => $tag) :
                 ?>
-                  <input type="checkbox" name="tag" value="<?php echo $tag->getId(); ?>"> 
+                  <input type="checkbox" name="tags[]" value="<?php echo $tag->getId(); ?>"> 
                   #<?php echo $tag->getName(); ?>
 
             <?php endforeach; ?>

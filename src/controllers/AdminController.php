@@ -91,6 +91,7 @@ class AdminController extends AbstractController
             $params = $this->request->getParams();
 
             var_dump($params);
+            var_dump($_POST);
 
             $adminModel = new AdminModel();
             $properties = [
@@ -98,7 +99,7 @@ class AdminController extends AbstractController
                 'body' => $params->get('body'),
                 'image_url' => $params->get('image_url'),
                 'category' => $params->get('category'),
-                'tag' => $params->get('tag')
+                'tags' => $params->get('tags')
             ];
 
             var_dump($properties);
