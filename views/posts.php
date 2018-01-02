@@ -64,6 +64,7 @@ echo $errorLogin;
 
              <article>
                 <h1><?php echo $post->getTitle(); ?></h1>
+                <p><?php echo $post->getCategory(); ?></p>
                 <h2><?php echo $post->getDate(); ?></h2>
                 <p><?php echo $post->getBody(); ?></p>
 
@@ -72,7 +73,13 @@ echo $errorLogin;
                     echo "<img src='$url' width='800' height='500'>";
                 } ?>
                 
-                <p><?php echo $post->getCategory(); ?></p>
+                <?php 
+                $tagmodel = $params['tagModel'];
+                $tags = $tagmodel->getTagsOfPost($post->getId());
+                
+
+                // variable_att_spara_return_värde_i = $objektet_name->funktionens_name($paramterns_namn);
+                ?>
                
 
             </article>
