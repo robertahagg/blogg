@@ -32,8 +32,9 @@ class PostsController extends AbstractController
             'posts' => $posts,
             'tagModel' => $tagModel,
             'currentPage' => $page,
-            'lastPage' => count($posts) < self::PAGE_LENGTH
+            'isLastPage' => count($posts) < self::PAGE_LENGTH
         ];
+
         return $this->render('views/posts.php', $properties);
     }
 

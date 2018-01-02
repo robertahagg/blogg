@@ -60,8 +60,7 @@
     </main>
 </body>
 <footer>
-    <a href="#" class="previous_button">&laquo; Previous</a>
-    <a href="#" class="next_button">Next &raquo;</a>
+  
 </footer>
 
 </html>

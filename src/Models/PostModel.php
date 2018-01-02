@@ -37,7 +37,9 @@ class PostModel extends AbstractModel
         $sth->bindParam('length', $pageLength, PDO::PARAM_INT);
         $sth->execute();
 
-        return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
+        $result = $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
+
+        return $result;
     }
 
     public function search(string $tags) : array
