@@ -23,14 +23,14 @@ set('allow_anonymous_stats', false);
 // Hosts
 
 host('ssh.binero.se')
-    ->set('deploy_path', '~/{{application}}/public_html')
+    ->set('deploy_path', '~/{{application}}')
     ->user('226749_roberta');
 
 
 // Tasks
 // Create symlink from the deployer release path to the
 task('deploy:custom_webroot', function() {
-    run("cd {{deploy_path}} && ln -sfn {{release_path}} /web");
+    run("cd {{deploy_path}} && ln -sfn {{release_path}} /public_html/web");
 });
 
 desc('Deploy your project');
