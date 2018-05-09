@@ -19,12 +19,14 @@ abstract class AbstractController
         $this->customerId = $customerId;
     }
 
-    protected function render(string $template, array $params) : string
+    protected function render(string $view, array $params) : string
     {
         extract($params);
 
         ob_start();
-        include $template;
+        include_once('templates/header.php');
+            include $view;
+        include_once('templates/footer.php');
         $renderedView = ob_get_clean();
 
         return $renderedView;
