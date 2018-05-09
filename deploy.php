@@ -4,7 +4,7 @@ namespace Deployer;
 require 'recipe/common.php';
 
 // Project name
-set('application', '~/blogg.robertahaggstrom.chas.academy');
+set('application', 'blogg.robertahaggstrom.chas.academy');
 
 // Project repository
 set('repository', 'git@github.com:chas-academy/05-dynamisk-webbplats-php-robertahagg.git');
