@@ -69,7 +69,7 @@ SQL;
         if ($sth->execute()) {
             $success = 'true';
         } else {
-            throw new Exeption('Something went wrong');
+            throw new \Exception('Something went wrong');
         }
 
         return $success;
@@ -84,7 +84,7 @@ SQL;
         $sth->bindParam(':password', $password);
 
         if (!$sth->execute()) {
-            throw new Exeption('Something went wrong');
+            throw new \Exception('Something went wrong');
         }
 
         $row = $sth->fetch();
