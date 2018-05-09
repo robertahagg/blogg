@@ -6,7 +6,6 @@ use Blog\Exceptions\DbException;
 use Blog\Exceptions\NotFoundException;
 use Blog\Utils\Password;
 use PDO;
-use Exeption;
 use Blog\Domain\Users;
 
 class PostModel extends AbstractModel

@@ -23,7 +23,7 @@
 </form>
 
 <p class="errorMessageStyle">
-<?php 
+<?php
 $errorLogin = $params['ErrorMessage'];
 echo $errorLogin;
 ?>
@@ -33,12 +33,12 @@ echo $errorLogin;
 
     <form>
         <input type="search" name="tag" placeholder="Find posts by tags">
-        <input type="submit" value="Search">      
+        <input type="submit" value="Search">
     </form>
-    
+
     <main class="center_text"role="main">
         <div class="image"></div>
-     
+
         <section>
         <nav id="primary_nav_wrap">
         <ul>
@@ -54,11 +54,11 @@ echo $errorLogin;
         </ul>
     </nav>
     </section>
-        
+
     <section>
 
-        <?php 
-        $posts = $params[posts];
+        <?php
+        $posts = $params['posts'];
         foreach ($posts as $i => $post) :
         ?>
 
@@ -72,15 +72,15 @@ echo $errorLogin;
                     $url = $post->getImageUrl();
                     echo "<img src='$url' width='800' height='500'>";
                 } ?>
-                
-                <?php 
+
+                <?php
                 $tagmodel = $params['tagModel'];
                 $tags = $tagmodel->getTagsOfPost($post->getId());
-                
+
 
                 // variable_att_spara_return_värde_i = $objektet_name->funktionens_name($paramterns_namn);
                 ?>
-               
+
 
             </article>
             <aside>
@@ -92,19 +92,19 @@ echo $errorLogin;
         <?php endforeach; ?>
 
         </section>
-        
+
     </main>
 </body>
 <footer>
 
-<?php if ($params[currentPage] > 1) {
-    $previousPageNumber = $params[currentPage] - 1;
+<?php if ($params['currentPage'] > 1) {
+    $previousPageNumber = $params['currentPage'] - 1;
 
     echo "<a href='$previousPageNumber' class='previous_button'>&laquo; Previous</a>";
 } ?>
 
-<?php if (!$params[isLastPage]) {
-    $nextPageNumber = $params[currentPage] + 1;
+<?php if (!$params['isLastPage']) {
+    $nextPageNumber = $params['currentPage'] + 1;
 
     echo "<a href='$nextPageNumber' class='next_button'> Next&raquo;</a>";
 } ?>

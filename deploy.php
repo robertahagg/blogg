@@ -26,7 +26,6 @@ host('ssh.binero.se')
     ->set('deploy_path', '~/{{application}}')
     ->user('226749_roberta');
 
-
 // Tasks
 // Create symlink from the deployer release path to the
 task('deploy:custom_webroot', function() {
