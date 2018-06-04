@@ -68,13 +68,13 @@
 <?php if ($params['currentPage'] > 1) {
     $previousPageNumber = $params['currentPage'] - 1;
 
-    echo "<a href='$previousPageNumber' class='previous_button'>&laquo; Previous</a>";
+    echo "<a href='/posts/$previousPageNumber' class='previous_button'>&laquo; Previous</a>";
 } ?>
 
 <?php if (!$params['isLastPage']) {
     $nextPageNumber = $params['currentPage'] + 1;
 
-    echo "<a href='$nextPageNumber' class='next_button'> Next&raquo;</a>";
+    echo "<a href='/posts/$nextPageNumber' class='next_button'> Next&raquo;</a>";
 } ?>
 
 </footer>
