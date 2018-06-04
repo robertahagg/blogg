@@ -111,4 +111,21 @@ class AdminController extends AbstractController
     {
 
     }
+
+    public function delete(int $postId) : string
+    {
+        if ($this->request->isPost()) {
+            $postModel = new PostModel();
+
+            try {
+            $postModel->delete($postId);
+            } catch (\Exception $e) {
+                $properties = ['errorMessage' => 'Post not found!'];
+                return $this->render('views/error.php', $properties);
+            }
+
+            return $this->redirect("/admin");
+        }
+    }
+
 }

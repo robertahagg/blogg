@@ -21,9 +21,9 @@
             <th>Title</th>
             <th>Date</th>
             <th>Author</th>
-            <th>Categories</th>
+            <th>Category</th>
             <th>Tags</th>
-            <th>Status</th>
+            <th>Delete</th>
         </tr>
         <?php
             $posts = $params[posts];
@@ -42,7 +42,22 @@
                 <?php echo $post->getDate(); ?>
             </td>
             <td>
-                <?php echo $post->getTitle(); ?>
+                <?php echo $post->getTitle(); //author ?>
+            </td>
+            <td>
+                <?php echo $post->getCategory(); ?>
+            </td>
+            <td>
+            <!-- Tags -->
+            </td>
+            <td>
+                <?php
+                 $id = $post->getId();
+                echo "<form class='post_form' action='deletePost/$id' method='post'>"; ?>
+                    <div class="button">
+                        <button type="submit"> X Delete </button>
+                    </div>
+                </form>
             </td>
         </tr>
         <?php endforeach; ?>

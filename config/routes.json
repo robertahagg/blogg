@@ -22,6 +22,14 @@
         "controller": "Admin",
         "method": "editPost"
     },
+    "deletePost/:id": {
+        "login": true,
+        "controller": "Admin",
+        "method": "delete",
+        "params": {
+            "id": "number"
+        }
+    },
     "posts/:page": {
         "controller": "Posts",
         "method": "getAllWithPage",

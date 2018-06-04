@@ -91,5 +91,12 @@ SQL;
 
         return !empty($row);
     }
+
+    public function delete(int $postId) 
+    {
+        $query = 'DELETE FROM posts WHERE id = :id';
+        $sth = $this->db->prepare($query);
+        $sth->execute(['id' => $postId]);
+    }
 }
 
