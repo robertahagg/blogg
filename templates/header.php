@@ -25,9 +25,11 @@
 <header>
 
   <form class="login" method="post">
-      <input type="text" name="username" placeholder="Admin username"><br>
-      <input type="pasword" name="password" placeholder="Password"><br>
-      <input type="submit" value="Login">
+      <input type="text" name="username" placeholder="Admin username"><input type="pasword" name="password" placeholder="Password">
+      <input type="submit" value="Login"><br>
+  </form>
+
+  <form class="register" method="post">
       <input type="submit" value="Register new user">
   </form>
 

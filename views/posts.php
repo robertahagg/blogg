@@ -1,7 +1,7 @@
-    <form>
+   <!--  <form>
         <input type="search" name="tag" placeholder="Find posts by tags">
         <input type="submit" value="Search">
-    </form>
+    </form> -->
 
     <main class="center_text"role="main">
         <div class="image"></div>
@@ -9,9 +9,7 @@
         <section>
         <nav id="primary_nav_wrap">
         <ul>
-            <li><a href="#contact">|Contact| </a>
-                <li><a href="#about"> About|</a>
-                <li><a href="#categories">Categories|</a>
+                <li><a href="#categories">|Categories|</a>
                 <ul>
       <li><a href="travel">Travel</a></li>
       <li><a href="fashion">Fashion</a></li>
@@ -29,7 +27,7 @@
         foreach ($posts as $i => $post) :
         ?>
 
-             <article>
+             <article class="container post_img">
                 <h1><?php echo $post->getTitle(); ?></h1>
                 <p><?php echo $post->getCategory(); ?></p>
                 <h2><?php echo $post->getDate(); ?></h2>

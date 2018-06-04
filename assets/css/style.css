@@ -9,6 +9,12 @@
     background-position: top center;
 }
 
+.container,
+post_img {
+    width: 70%;
+    margin: auto;
+}
+
 ul {
     list-style-type: none;
     font-family: "Titillium Web", sans-serif;
@@ -18,8 +24,8 @@ ul {
     padding-left: 5px;
 }
 
-.login {
-    float: left;
+.register {
+    float: right;
 }
 
 li {
@@ -27,9 +33,13 @@ li {
     text-decoration-style: none;
 }
 
-form {
-    float: right;
-    margin-right: 10px;
+.login {
+    float: left;
+    margin: 5px;
+}
+
+input {
+    margin: 5px;
 }
 
 h1,
@@ -127,7 +137,9 @@ a {
     display: block;
 }
 
+
 /** ADMINPAGE **/
+
 h1,
 h2,
 h3 {
@@ -145,7 +157,7 @@ h1 {
 }
 
 h2 {
-    font-size: 35px;
+    font-size: 20px;
     letter-spacing: 4px;
     margin-top: 5px;
     margin-bottom: 10px;
