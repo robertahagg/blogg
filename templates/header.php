@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<header>
+<header class="header">
 
   <form class="login" method="post">
       <input type="text" name="username" placeholder="Admin username"><input type="pasword" name="password" placeholder="Password">

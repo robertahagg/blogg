@@ -1,16 +1,15 @@
 <header>
-    <h1> Welcome Admin!
-    </h1>
+    <h1 class="header_admin"> Welcome Admin!</h1>
     <nav>
         <ul>
-            <a class="logout" href="logout">Log out</a>
+            <button><a class="logout" href="logout">Log out</a></button>
         </ul>
     </nav>
     <h2></h2>
     <div class="image"></div>
 </header>
 <section>
-    <a href="newPost">Create a new post</a>
+   <button><a href="newPost">Create a new post</a></button>
 
 </section>
 <section>

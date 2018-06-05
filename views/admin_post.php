@@ -1,5 +1,4 @@
 <section>
-    <h2>New blog post</h2>
     <form class="post_form" action="newPost" method="post">
 
         <label for="title">Title:</label>
