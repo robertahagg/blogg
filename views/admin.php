@@ -16,24 +16,17 @@
     <h2>Dashboard for your posts</h2>
     <table>
         <tr>
-            <th>#id</th>
             <th>Title</th>
             <th>Date</th>
             <th>Author</th>
             <th>Category</th>
             <th>Tags</th>
-            <th>Delete</th>
         </tr>
         <?php
             $posts = $params[posts];
             foreach ($posts as $i => $post) :
             ?>
         <tr>
-            <td>
-                <a href="admin/posts/1">
-                    <?php echo $post->getId(); ?>
-                </a>
-            </td>
             <td>
                 <?php echo $post->getTitle(); ?>
             </td>
@@ -50,9 +43,19 @@
             <!-- Tags -->
             </td>
             <td>
+            <!-- Edit -->
+            </td>
+            <td>
+            <?php
+                    $id = $post->getId();
+                    echo "<a href='admin/posts/$id'>Edit</a>";
+                 ?>
+            </td>
+            <td>
                 <?php
-                 $id = $post->getId();
-                echo "<form class='post_form' action='deletePost/$id' method='post'>"; ?>
+                    $id = $post->getId();
+                    echo "<form class='post_form' action='deletePost/$id' method='post'>";
+                 ?>
                     <div class="button">
                         <button type="submit"> X Delete </button>
                     </div>
