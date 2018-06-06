@@ -48,7 +48,7 @@
             <td>
             <?php
                     $id = $post->getId();
-                    echo "<a href='admin/posts/$id'>Edit</a>";
+                    echo "<a href='admin/posts/$id'><button>Edit</button></a>";
                  ?>
             </td>
             <td>
