@@ -14,7 +14,7 @@ class PostModel extends AbstractModel
 
     public function get(int $postId) : Post
     {
-        $query = 'SELECT * FROM posts WHERE id = :id';
+        $query = 'SELECT posts.*, categories.name as category_name FROM posts INNER JOIN categories ON categories.id = posts.category AND posts.id = :id';
         $sth = $this->db->prepare($query);
         $sth->execute(['id' => $postId]);
 

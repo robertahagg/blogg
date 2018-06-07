@@ -43,7 +43,16 @@ class AdminController extends AbstractController
             return $this->render('views/error.php', $properties);
         }
 
-        $properties = ['post' => $post];
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAll();
+
+        $tagModel = new TagModel();
+        $tags = $tagModel->getAll();
+
+        $properties = ['post' => $post, 
+        'categories' => $categories,
+        'tags' => $tags];
+        
         return $this->render('views/admin_post.php', $properties);
     }
 
@@ -67,7 +76,7 @@ class AdminController extends AbstractController
     {
         setcookie('user', '', time() - 5000);
 
-        return $this->redirect("/blogg/");
+        return $this->redirect("/");
     }
 
     public function newPost() : string

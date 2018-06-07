@@ -10,21 +10,41 @@
         ?>
 
         <label for="body">Body:</label>
-        <textarea class="body_box" id="" name="body"></textarea>
+        
+        <?php
+            $body = $post->getBody();
+            echo "<input class='body_box' id='' name='body' value='$body'>";
+        ?>
 
         <label for="image_url">Media url:</label>
-        <input class="single_line_box" type="url" id="" name="image_url">
-
         
-        <label for="category">Categories:</label>
         <?php
-            $categories = $params[categories];
-            foreach ($categories as $i => $category) :
+            $image_url = $post->getImageUrl();
+            echo "<input class='single_line_box' type='url' id='' name='image_url' value='$image_url'>";
         ?>
-            <input type="radio" name="category" value="<?php echo $category->getId(); ?>">
+  
+        <label for="category_name">Categories:</label>
+          <?php
+          $currentCategoryName = $post->getCategory();
+
+          echo '<p>currentCategoryName: ';
+          echo $currentCategoryName;
+          echo '</p>' ;
+
+            $categories = $params[categories];
+
+            foreach ($categories as $i => $category) :
+
+                echo '<p>category->getName(): ';
+                echo $category->getName();
+                echo '</p>'    ;
+                ?>
+
+            <input type="radio" name="category" value="<?php echo $category->getId(); ?> 
+                "checked="<?php if($currentCategoryName == $category->getName()) {echo 'checked';} ?>">
 
             <?php echo $category->getName(); ?>
-        <?php endforeach; ?>
+        <?php endforeach; ?>  
 
 
         <label for="tag">Tags:</label>

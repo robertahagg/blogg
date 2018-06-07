@@ -97,7 +97,7 @@ a {
 }
 
 #primary_nav_wrap {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 #primary_nav_wrap ul {
@@ -115,7 +115,6 @@ a {
     line-height: 40px;
     padding: 0 5px;
     font-family: "Titillium Web", sans-serif;
-    position: center;
 }
 
 #primary_nav_wrap ul li {
@@ -130,6 +129,7 @@ a {
 
 #primary_nav_wrap ul ul {
     display: none;
+    float: right;
     position: absolute;
     top: 100%;
     left: 0;

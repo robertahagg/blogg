@@ -9,13 +9,11 @@
         <section>
         <nav id="primary_nav_wrap">
         <ul>
-                <li><a href="#categories">|Categories|</a>
-                <ul>
+            <h3>Categories</h3>
       <li><a href="travel">Travel</a></li>
       <li><a href="fashion">Fashion</a></li>
       <li><a href="general">General</a></li>
       <li><a href="inspiration">Inspiration</a>
-
         </ul>
     </nav>
     </section>
