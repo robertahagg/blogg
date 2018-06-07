@@ -20,13 +20,13 @@ class PostsController extends AbstractController
         }
     }
 
-    public function getAllWithPage($page) : string
+    public function getAllWithPage($page, $categoryId) : string
     {
         $page = (int)$page;
         $postModel = new PostModel();
         $tagModel = new TagModel();
 
-        $posts = $postModel->getAll($page, self::PAGE_LENGTH);
+        $posts = $postModel->getAll($page, self::PAGE_LENGTH, $categoryId);
 
         $properties = [
             'posts' => $posts,
@@ -38,9 +38,13 @@ class PostsController extends AbstractController
         return $this->render('views/posts.php', $properties);
     }
 
+    public function getAllByCategoryWithPage($categoryId, $page) : string {
+        return $this->getAllWithPage($page, $categoryId);
+    }
+
     public function getAll() : string
     {
-        return $this->getAllWithPage(1);
+        return $this->getAllWithPage(1, null);
     }
 
     public function search() : string
@@ -109,6 +113,4 @@ class PostsController extends AbstractController
             return $this->render('views/posts.php', $params);
         }
     }
-
-
 }

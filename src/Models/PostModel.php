@@ -26,14 +26,30 @@ class PostModel extends AbstractModel
         return $posts[0];
     }
 
-    public function getAll(int $page, int $pageLength) : array
+    public function getAll(int $page, int $pageLength, int $categoryId = null) : array
     {
         $start = $pageLength * ($page - 1);
 
-        $query = 'SELECT posts.*, categories.name as category_name FROM posts INNER JOIN categories ON categories.id = posts.category ORDER BY id LIMIT :page, :length';
+        $queryPart1 = 'SELECT posts.*, categories.name as category_name FROM posts INNER JOIN categories ON categories.id = posts.category';
+       
+        if($categoryId!=null) {
+            $queryPart2 = ' AND categories.id = :categoryId';
+        }
+        else {
+            $queryPart2 = '';
+        }
+
+        $queryPart3 = ' ORDER BY id LIMIT :page, :length';
+        $query = $queryPart1.$queryPart2.$queryPart3;
+
         $sth = $this->db->prepare($query);
         $sth->bindParam('page', $start, PDO::PARAM_INT);
         $sth->bindParam('length', $pageLength, PDO::PARAM_INT);
+
+        if($categoryId!=null) {
+            $sth->bindParam('categoryId', $categoryId, PDO::PARAM_INT);
+        }
+      
         $sth->execute();
 
         $result = $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);

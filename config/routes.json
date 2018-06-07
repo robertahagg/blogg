@@ -37,13 +37,17 @@
             "page": "number"
         }
     },
+    "categories/:categoryId/posts/:page": {
+        "controller": "Posts",
+        "method": "getAllByCategoryWithPage",
+        "params": {
+            "categoryId": "number",
+            "page": "number"
+        }
+    },
     "": {
         "controller": "Posts",
         "method": "handleRequest"
-    },
-    "posts/search": {
-        "controller": "Posts",
-        "method": "search"
     },
     "admin": {
         "login": true,
