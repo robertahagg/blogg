@@ -29,9 +29,9 @@
       <input type="submit" value="Login"><br>
   </form>
 
-  <form class="register" method="post">
-      <input type="submit" value="Register new user">
-  </form>
+  <div class="register">
+      <a href="/register"><button>Register new user</button></a>
+</div>
 
   <p class="errorMessageStyle">
       <?php

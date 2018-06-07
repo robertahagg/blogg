@@ -15,10 +15,9 @@
 <body>
     <main>
     <header>
-    
-    <h1> Create your account
-    </h1>
 </header>
+<h1 class="header_register"> Create Account
+    </h1>
 <section>
         <form class="post_form" action="/register" method="post">
             

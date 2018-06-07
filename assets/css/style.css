@@ -30,6 +30,7 @@ ul {
 
 .register {
     float: right;
+    padding-top: 5px;
 }
 
 li {
@@ -152,8 +153,9 @@ h3 {
     font-weight: lighter;
 }
 
-.header_admin {
-    width: 800px;
+.header_admin,
+.header_register {
+    width: 500px;
     margin: auto;
 }
 
@@ -188,6 +190,7 @@ body {
     text-align: center;
     background-color: white;
     color: black;
+    margin-top: 0px;
 }
 
 .fa-user {
