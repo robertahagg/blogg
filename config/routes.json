@@ -56,5 +56,12 @@
         "params": {
             "id": "number"
         }
+    },
+    "categories/:id": {
+        "controller": "Posts",
+        "method": "getByCategory",
+        "params": {
+            "id": "number"
+        }
     }
 }

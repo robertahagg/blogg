@@ -12,9 +12,9 @@ class CategoryModel extends AbstractModel
 {
     const CLASSNAME = '\Blog\Domain\Category';
 
-    public function getAll() : array
+    public function getByCategory() : array
     {
-        $query = 'SELECT * FROM categories';
+        $query = 'SELECT posts.*, categories.name as category_name FROM posts INNER JOIN categories ON categories.id = posts.category AND posts.id = :id';
         $sth = $this->db->prepare($query);
         $sth->execute();
 

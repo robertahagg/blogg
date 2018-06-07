@@ -109,6 +109,22 @@ class PostsController extends AbstractController
             return $this->render('views/posts.php', $params);
         }
     }
+    public function getByCategory($category) : string
+    {
+        $postModel = new PostModel();
+        $categoryModel = new CategoryModel();
+
+        $posts = $postModel->getAll($category, self::PAGE_LENGTH);
+
+        $properties = [
+            'posts' => $posts,
+            'categoryModel' => $categoryModel,
+            'currentPage' => $page,
+            'isLastPage' => count($posts) < self::PAGE_LENGTH
+    };
+    return $this->render('views/posts.php', $properties);
+}
+
 
 
 }
