@@ -52,7 +52,7 @@ class AdminController extends AbstractController
         $properties = ['post' => $post, 
         'categories' => $categories,
         'tags' => $tags];
-        
+
         return $this->render('views/admin_post.php', $properties);
     }
 
@@ -94,7 +94,7 @@ class AdminController extends AbstractController
                 'tags' => $tags
             ];
 
-            return $this->render('views/admin_post.php', $properties);
+            return $this->render('views/new_post.php', $properties);
 
         } else if ($this->request->isPost()) {
             $params = $this->request->getParams();
