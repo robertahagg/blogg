@@ -27,21 +27,20 @@
           <?php
           $currentCategoryName = $post->getCategory();
 
-          echo '<p>currentCategoryName: ';
-          echo $currentCategoryName;
-          echo '</p>' ;
-
             $categories = $params[categories];
 
             foreach ($categories as $i => $category) :
 
-                echo '<p>category->getName(): ';
-                echo $category->getName();
-                echo '</p>'    ;
-                ?>
+            echo "<input type='radio' name='category' value='";
+            echo $category->getId();
+            echo "'";
 
-            <input type="radio" name="category" value="<?php echo $category->getId(); ?> 
-                "checked="<?php if($currentCategoryName == $category->getName()) {echo 'checked';} ?>">
+            if($currentCategoryName == $category->getName())
+             {
+                 echo ' checked';
+            }
+            echo ">";
+                                ?>  
 
             <?php echo $category->getName(); ?>
         <?php endforeach; ?>  
