@@ -1,18 +1,16 @@
 <?php
 namespace Blog\Controllers;
 
-use Blog\Exceptions\DbException;
-use Blog\Exceptions\NotFoundException;
-use Blog\Models\PostModel;
 use Blog\Controllers\PostsController;
-use Blog\Models\TagModel;
 use Blog\Models\CategoryModel;
+use Blog\Models\PostModel;
+use Blog\Models\TagModel;
 
 class PostsController extends AbstractController
 {
     const PAGE_LENGTH = 4;
 
-    public function handleRequest() : string
+    public function handleRequest(): string
     {
         if ($this->request->isGet()) {
             return $this->getAll();
@@ -21,9 +19,9 @@ class PostsController extends AbstractController
         }
     }
 
-    public function getAllWithPage($page, $categoryId) : string
+    public function getAllWithPage($page, $categoryId): string
     {
-        $page = (int)$page;
+        $page = (int) $page;
         $postModel = new PostModel();
         $tagModel = new TagModel();
 
@@ -37,22 +35,23 @@ class PostsController extends AbstractController
             'tagModel' => $tagModel,
             'categories' => $categories,
             'currentPage' => $page,
-            'isLastPage' => count($posts) < self::PAGE_LENGTH
+            'isLastPage' => count($posts) < self::PAGE_LENGTH,
         ];
 
         return $this->render('views/posts.php', $properties);
     }
 
-    public function getAllByCategoryWithPage($categoryId, $page) : string {
+    public function getAllByCategoryWithPage($categoryId, $page): string
+    {
         return $this->getAllWithPage($page, $categoryId);
     }
 
-    public function getAll() : string
+    public function getAll(): string
     {
         return $this->getAllWithPage(1, null);
     }
 
-    public function search() : string
+    public function search(): string
     {
         $tags = $this->request->getParams()->getString('tags');
 
@@ -62,7 +61,7 @@ class PostsController extends AbstractController
         $properties = [
             'posts' => $posts,
             'currentPage' => 1,
-            'lastPage' => true
+            'lastPage' => true,
         ];
         return $this->render('views/posts.php', $properties);
 
@@ -80,7 +79,7 @@ class PostsController extends AbstractController
                 'lastname' => $params->get('lastname'),
                 'username' => $params->get('username'),
                 'email' => $params->get('email'),
-                'password' => $params->get('password')
+                'password' => $params->get('password'),
             ];
 
             $postModel->register($properties);

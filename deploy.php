@@ -28,7 +28,7 @@ host('ssh.binero.se')
 
 // Tasks
 // Create symlink from the deployer release path to the
-task('deploy:custom_webroot', function() {
+task('deploy:custom_webroot', function () {
     run("cd {{deploy_path}} && ln -sfn {{release_path}} public_html/web");
 });
 
@@ -46,7 +46,7 @@ task('deploy', [
     'deploy:symlink',
     'deploy:unlock',
     'cleanup',
-    'success'
+    'success',
 ]);
 
 // [Optional] If deploy fails automatically unlock.

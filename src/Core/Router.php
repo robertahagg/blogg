@@ -1,15 +1,15 @@
 <?php
 namespace Blog\Core;
 
-use Blog\Controllers\ErrorController;
 use Blog\Controllers\CustomerController;
+use Blog\Controllers\ErrorController;
 
 class Router
 {
     private $routeMap;
     private static $regexPatters = [
         'number' => '\d+',
-        'string' => '\w'
+        'string' => '\w',
     ];
 
     public function __construct()
@@ -18,7 +18,7 @@ class Router
         $this->routeMap = json_decode($json, true);
     }
 
-    public function route(Request $request) : string
+    public function route(Request $request): string
     {
         $path = $request->getPath();
 
@@ -33,7 +33,7 @@ class Router
         return $errorController->notFound();
     }
 
-    private function getRegexRoute(string $route, array $info) : string
+    private function getRegexRoute(string $route, array $info): string
     {
         if (isset($info['params'])) {
             foreach ($info['params'] as $name => $type) {
@@ -49,15 +49,14 @@ class Router
         string $path,
         array $info,
         Request $request
-    ) : string
-    {
+    ): string {
         $controllerName = '\Blog\Controllers\\' . $info['controller'] . 'Controller';
         $controller = new $controllerName($request);
 
         if (isset($info['login']) && $info['login']) {
             if ($request->getCookies()->has('user')) {
                 $customerId = $request->getCookies()->get('user');
-               // $controller->setCustomerId($customerId);
+                // $controller->setCustomerId($customerId);
             } else {
                 $errorController = new CustomerController($request);
                 return $errorController->login();
@@ -68,7 +67,7 @@ class Router
         return call_user_func_array([$controller, $info['method']], $params);
     }
 
-    private function extractParams(string $route, string $path) : array
+    private function extractParams(string $route, string $path): array
     {
         $params = [];
 

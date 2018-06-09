@@ -1,20 +1,18 @@
 <?php
 namespace Blog\Controllers;
 
-use Blog\Exceptions\DbException;
-use Blog\Exceptions\NotFoundException;
-use Blog\Models\PostModel;
 use Blog\Models\AdminModel;
-use Blog\Models\TagModel;
 use Blog\Models\CategoryModel;
+use Blog\Models\PostModel;
+use Blog\Models\TagModel;
 
 class AdminController extends AbstractController
 {
     const PAGE_LENGTH = 4;
 
-    public function getAllWithPage($page) : string
+    public function getAllWithPage($page): string
     {
-        $page = (int)$page;
+        $page = (int) $page;
         $postModel = new PostModel();
 
         $posts = $postModel->getAll($page, self::PAGE_LENGTH);
@@ -22,17 +20,17 @@ class AdminController extends AbstractController
         $properties = [
             'posts' => $posts,
             'currentPage' => $page,
-            'lastPage' => count($posts) < self::PAGE_LENGTH
+            'lastPage' => count($posts) < self::PAGE_LENGTH,
         ];
         return $this->render('views/admin.php', $properties);
     }
 
-    public function getAll() : string
+    public function getAll(): string
     {
         return $this->getAllWithPage(1);
     }
 
-    public function get(int $postId) : string
+    public function get(int $postId): string
     {
         $postModel = new PostModel();
 
@@ -49,14 +47,14 @@ class AdminController extends AbstractController
         $tagModel = new TagModel();
         $tags = $tagModel->getAll();
 
-        $properties = ['post' => $post, 
-        'categories' => $categories,
-        'tags' => $tags];
+        $properties = ['post' => $post,
+            'categories' => $categories,
+            'tags' => $tags];
 
         return $this->render('views/admin_post.php', $properties);
     }
 
-    public function search() : string
+    public function search(): string
     {
         $categories = $this->request->getParams()->getString('tags');
         $tags = $this->request->getParams()->getString('tags');
@@ -67,19 +65,19 @@ class AdminController extends AbstractController
         $properties = [
             'posts' => $posts,
             'currentPage' => 1,
-            'lastPage' => true
+            'lastPage' => true,
         ];
         return $this->render('views/posts.php', $properties);
     }
 
-    public function logout() : string
+    public function logout(): string
     {
         setcookie('user', '', time() - 5000);
 
         return $this->redirect("/");
     }
 
-    public function newPost() : string
+    public function newPost(): string
     {
         if ($this->request->isGet()) {
 
@@ -91,7 +89,7 @@ class AdminController extends AbstractController
 
             $properties = [
                 'categories' => $categories,
-                'tags' => $tags
+                'tags' => $tags,
             ];
 
             return $this->render('views/new_post.php', $properties);
@@ -108,7 +106,7 @@ class AdminController extends AbstractController
                 'body' => $params->get('body'),
                 'image_url' => $params->get('image_url'),
                 'category' => $params->get('category'),
-                'tags' => $params->get('tags')
+                'tags' => $params->get('tags'),
             ];
 
             var_dump($properties);
@@ -116,18 +114,18 @@ class AdminController extends AbstractController
             return $adminModel->newPost($properties);
         }
     }
-    public function editPost() : string
+    public function editPost(): string
     {
 
     }
 
-    public function delete(int $postId) : string
+    public function delete(int $postId): string
     {
         if ($this->request->isPost()) {
             $postModel = new PostModel();
 
             try {
-            $postModel->delete($postId);
+                $postModel->delete($postId);
             } catch (\Exception $e) {
                 $properties = ['errorMessage' => 'Post not found!'];
                 return $this->render('views/error.php', $properties);

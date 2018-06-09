@@ -2,17 +2,15 @@
 namespace Blog\Models;
 
 use Blog\Domain\Post;
-use Blog\Exceptions\DbException;
 use Blog\Exceptions\NotFoundException;
 use Blog\Utils\Password;
 use PDO;
-use Blog\Domain\Users;
 
 class PostModel extends AbstractModel
 {
     const CLASSNAME = '\Blog\Domain\Post';
 
-    public function get(int $postId) : Post
+    public function get(int $postId): Post
     {
         $query = 'SELECT posts.*, categories.name as category_name FROM posts INNER JOIN categories ON categories.id = posts.category AND posts.id = :id';
         $sth = $this->db->prepare($query);
@@ -26,30 +24,29 @@ class PostModel extends AbstractModel
         return $posts[0];
     }
 
-    public function getAll(int $page, int $pageLength, int $categoryId = null) : array
+    public function getAll(int $page, int $pageLength, int $categoryId = null): array
     {
         $start = $pageLength * ($page - 1);
 
         $queryPart1 = 'SELECT posts.*, categories.name as category_name FROM posts INNER JOIN categories ON categories.id = posts.category';
-       
-        if($categoryId!=null) {
+
+        if ($categoryId != null) {
             $queryPart2 = ' AND categories.id = :categoryId';
-        }
-        else {
+        } else {
             $queryPart2 = '';
         }
 
         $queryPart3 = ' ORDER BY id LIMIT :page, :length';
-        $query = $queryPart1.$queryPart2.$queryPart3;
+        $query = $queryPart1 . $queryPart2 . $queryPart3;
 
         $sth = $this->db->prepare($query);
         $sth->bindParam('page', $start, PDO::PARAM_INT);
         $sth->bindParam('length', $pageLength, PDO::PARAM_INT);
 
-        if($categoryId!=null) {
+        if ($categoryId != null) {
             $sth->bindParam('categoryId', $categoryId, PDO::PARAM_INT);
         }
-      
+
         $sth->execute();
 
         $result = $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
@@ -57,7 +54,7 @@ class PostModel extends AbstractModel
         return $result;
     }
 
-    public function search(string $tags) : array
+    public function search(string $tags): array
     {
         $query = <<<SQL
 SELECT * FROM posts
@@ -70,7 +67,7 @@ SQL;
         return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
     }
 
-    public function register(array $formdata) : string
+    public function register(array $formdata): string
     {
         $query = "INSERT INTO users (firstname, lastname, username, email, password) VALUES (:firstname, :lastname, :username, :email, :password)";
         $sth = $this->db->prepare($query);
@@ -91,7 +88,7 @@ SQL;
         return $success;
     }
 
-    public function hasUserWithPassword(string $username, $password) : bool
+    public function hasUserWithPassword(string $username, $password): bool
     {
         $query = 'SELECT * FROM users WHERE username = :username AND password = :password';
         $sth = $this->db->prepare($query);
@@ -108,11 +105,10 @@ SQL;
         return !empty($row);
     }
 
-    public function delete(int $postId) 
+    public function delete(int $postId)
     {
         $query = 'DELETE FROM posts WHERE id = :id';
         $sth = $this->db->prepare($query);
         $sth->execute(['id' => $postId]);
     }
 }
-

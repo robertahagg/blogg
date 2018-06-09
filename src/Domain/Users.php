@@ -4,7 +4,8 @@ namespace Blog\Domain;
 
 use Blog\Utils\Unique;
 
-class Users {
+class Users
+{
     use Unique;
 
     protected $firstname;
@@ -13,7 +14,8 @@ class Users {
     protected $email;
     protected $password;
 
-    public function __construct($id, $firstname, $lastname, $username, $email, $password) {
+    public function __construct($id, $firstname, $lastname, $username, $email, $password)
+    {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->username = $username;
@@ -22,25 +24,31 @@ class Users {
         $this->setId($id);
     }
 
-    public function getFirstname() {
+    public function getFirstname()
+    {
         return $this->firstname;
     }
 
-    public function getLastname() {
+    public function getLastname()
+    {
         return $this->lastname;
     }
-    public function getUsername() {
+    public function getUsername()
+    {
         return $this->username;
     }
 
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
 }

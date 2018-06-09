@@ -1,11 +1,11 @@
 <?php
-    namespace Blog\Exceptions;
+namespace Blog\Exceptions;
 
-    use Exception;
+use Exception;
 
-    /**
-     * Custom Exception
-     */
-    class NotFoundException extends Exception
-    {
-    }
+/**
+ * Custom Exception
+ */
+class NotFoundException extends Exception
+{
+}

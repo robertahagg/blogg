@@ -1,21 +1,19 @@
 <?php
 namespace Blog\Models;
 
-use Blog\Domain\Admin;
-use PDO;
 use Exception;
 
 class AdminModel extends AbstractModel
 {
     const CLASSNAME = '\Blog\Domain\Admin';
 
-    public function newPost(array $formdata) : string
+    public function newPost(array $formdata): string
     {
         $query = "INSERT INTO posts (title, body, image_url, category) VALUES (:title, :body, :image_url, :category)";
         $sth = $this->db->prepare($query);
         $sth->bindParam(':title', $formdata['title']);
         $sth->bindParam(':body', $formdata['body']);
-   //     $sth->bindParam(':date', $formdata['date']);
+        //     $sth->bindParam(':date', $formdata['date']);
         $sth->bindParam(':image_url', $formdata['image_url']);
         $sth->bindParam(':category', $formdata['category']);
 
@@ -46,7 +44,7 @@ Add rows:
 88 5
 88 6
 88 4
-         */
+ */
 
         foreach ($tagArray as $i => $tagId) {
             $query = "INSERT INTO tagsposts (post_Id, tags_Id) VALUES (:postid, :tagid)";
