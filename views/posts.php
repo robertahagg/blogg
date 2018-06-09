@@ -18,7 +18,7 @@
                 $id=$category->getId();
 
                 echo "<li><a href='/categories/$id/posts/1'>$name</a></li>";
-            endforeach; 
+            endforeach;
             ?>
         </ul>
     </nav>
@@ -38,9 +38,9 @@
                 <p><?php echo $post->getBody(); ?></p>
 
                 <?php if (!empty($post->getImageUrl())) {
-                    $url = $post->getImageUrl();
-                    echo "<img src='$url' width='800' height='500'>";
-                } ?>
+            $url = $post->getImageUrl();
+            echo "<img src='$url' width='800' height='500'>";
+        } ?>
 
                 <?php
                 $tagmodel = $params['tagModel'];
@@ -68,16 +68,16 @@
 <footer>
 
 <?php if ($params['currentPage'] > 1) {
-    $previousPageNumber = $params['currentPage'] - 1;
+                    $previousPageNumber = $params['currentPage'] - 1;
 
-    echo "<a href='/posts/$previousPageNumber' class='previous_button'>&laquo; Previous</a>";
-} ?>
+                    echo "<a href='/posts/$previousPageNumber' class='previous_button'>&laquo; Previous</a>";
+                } ?>
 
 <?php if (!$params['isLastPage']) {
-    $nextPageNumber = $params['currentPage'] + 1;
+                    $nextPageNumber = $params['currentPage'] + 1;
 
-    echo "<a href='/posts/$nextPageNumber' class='next_button'> Next&raquo;</a>";
-} ?>
+                    echo "<a href='/posts/$nextPageNumber' class='next_button'> Next&raquo;</a>";
+                } ?>
 
 </footer>
 
