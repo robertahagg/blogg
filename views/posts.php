@@ -8,12 +8,18 @@
 
         <section>
         <nav id="primary_nav_wrap">
+        <h3>Categories</h3>
         <ul>
-            <h3>Categories</h3>
-      <li><a href="travel">Travel</a></li>
-      <li><a href="fashion">Fashion</a></li>
-      <li><a href="general">General</a></li>
-      <li><a href="inspiration">Inspiration</a>
+            
+        <?php
+            $categories = $params['categories'];
+            foreach ($categories as $i => $category) :
+                $name=$category->getName();
+                $id=$category->getId();
+
+                echo "<li><a href='/categories/$id/posts/1'>$name</a></li>";
+            endforeach; 
+            ?>
         </ul>
     </nav>
     </section>

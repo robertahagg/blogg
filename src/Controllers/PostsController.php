@@ -6,6 +6,7 @@ use Blog\Exceptions\NotFoundException;
 use Blog\Models\PostModel;
 use Blog\Controllers\PostsController;
 use Blog\Models\TagModel;
+use Blog\Models\CategoryModel;
 
 class PostsController extends AbstractController
 {
@@ -26,11 +27,15 @@ class PostsController extends AbstractController
         $postModel = new PostModel();
         $tagModel = new TagModel();
 
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAll();
+
         $posts = $postModel->getAll($page, self::PAGE_LENGTH, $categoryId);
 
         $properties = [
             'posts' => $posts,
             'tagModel' => $tagModel,
+            'categories' => $categories,
             'currentPage' => $page,
             'isLastPage' => count($posts) < self::PAGE_LENGTH
         ];
