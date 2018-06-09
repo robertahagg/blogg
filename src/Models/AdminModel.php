@@ -33,6 +33,33 @@ class AdminModel extends AbstractModel
         return $success;
     }
 
+    public function updatePost($postId, array $formdata): string
+    {
+        $query = "UPDATE posts SET title=:title, body=:body, image_url=:image_url, category=:category WHERE id=:id";
+        $sth = $this->db->prepare($query);
+        $sth->bindParam(':id', $postId);
+        $sth->bindParam(':title', $formdata['title']);
+        $sth->bindParam(':body', $formdata['body']);
+        //     $sth->bindParam(':date', $formdata['date']);
+        $sth->bindParam(':image_url', $formdata['image_url']);
+        $sth->bindParam(':category', $formdata['category']);
+
+        $success = '';
+
+        if ($sth->execute()) {
+            $success = 'true';
+        } else {
+            var_dump($sth->errorCode());
+            var_dump($sth->errorInfo()); // Prints information about what went wrong.
+            throw new Exception('Something went wrong');
+        }
+        //skapa en insert query för tags_posts tabellen
+
+        // $this->storeTags($this->db->lastInsertId(), $formdata['tags']);
+
+        return $success;
+    }
+
     private function storeTags($postId, array $tagArray)
     {
 /*

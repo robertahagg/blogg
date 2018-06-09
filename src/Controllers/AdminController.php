@@ -32,6 +32,21 @@ class AdminController extends AbstractController
 
     public function get(int $postId): string
     {
+        if ($this->request->isPost()) {
+            $params = $this->request->getParams();
+
+            $adminModel = new AdminModel();
+            $properties = [
+                'title' => $params->get('title'),
+                'body' => $params->get('body'),
+                'image_url' => $params->get('image_url'),
+                'category' => $params->get('category'),
+                'tags' => $params->get('tags'),
+            ];
+
+            $adminModel->updatePost($postId, $properties);
+        }
+
         $postModel = new PostModel();
 
         try {
@@ -113,10 +128,6 @@ class AdminController extends AbstractController
 
             return $adminModel->newPost($properties);
         }
-    }
-    public function editPost(): string
-    {
-
     }
 
     public function delete(int $postId): string
