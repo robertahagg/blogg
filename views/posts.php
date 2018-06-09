@@ -50,12 +50,17 @@ foreach ($posts as $i => $post):
     echo "<img src='$url' width='800' height='500'>";
 }?>
 
+<p>
                 <?php
 $tagmodel = $params['tagModel'];
 $tags = $tagmodel->getTagsOfPost($post->getId());
 
-// variable_att_spara_return_värde_i = $objektet_name->funktionens_name($paramterns_namn);
+foreach ($tags as $i => $tag):
+    $tagName = $tag->getName();
+    echo "#$tagName ";
+endforeach;
 ?>
+</p>
 
 
             </article>

@@ -94,26 +94,8 @@ class AdminController extends AbstractController
 
     public function newPost(): string
     {
-        if ($this->request->isGet()) {
-
-            $categoryModel = new CategoryModel();
-            $categories = $categoryModel->getAll();
-
-            $tagModel = new TagModel();
-            $tags = $tagModel->getAll();
-
-            $properties = [
-                'categories' => $categories,
-                'tags' => $tags,
-            ];
-
-            return $this->render('views/new_post.php', $properties);
-
-        } else if ($this->request->isPost()) {
+        if ($this->request->isPost()) {
             $params = $this->request->getParams();
-
-            var_dump($params);
-            var_dump($_POST);
 
             $adminModel = new AdminModel();
             $properties = [
@@ -124,10 +106,21 @@ class AdminController extends AbstractController
                 'tags' => $params->get('tags'),
             ];
 
-            var_dump($properties);
-
-            return $adminModel->newPost($properties);
+            $adminModel->newPost($properties);
         }
+
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAll();
+
+        $tagModel = new TagModel();
+        $tags = $tagModel->getAll();
+
+        $properties = [
+            'categories' => $categories,
+            'tags' => $tags,
+        ];
+
+        return $this->render('views/new_post.php', $properties);
     }
 
     public function delete(int $postId): string
