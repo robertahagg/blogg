@@ -4,7 +4,7 @@
         <label for="title">Title:</label>
 
         <?php
-            $post = $params[post];
+$post = $params[post];
 $title = $post->getTitle();
 echo "<input class='single_line_box' type='text' id='' name='title' value='$title'>";
 ?>
@@ -41,22 +41,40 @@ foreach ($categories as $i => $category):
     echo ">";
     ?>
 
-		            <?php echo $category->getName(); ?>
-		        <?php endforeach;?>
+										<?php echo $category->getName(); ?>
+										<?php endforeach;?>
 
 
-        <label for="tag">Tags:</label>
-            <?php
+<label for="tag">Tags:</label>
+<?php
 $tags = $params[tags];
+$taggedTags = $params[taggedTags];
+
 foreach ($tags as $i => $tag):
-?>
-                <input type="checkbox" name="tags[]" value="<?php echo $tag->getId(); ?>">
-                #<?php echo $tag->getName(); ?>
+    $tagged = false;
 
-        <?php endforeach;?>
+    foreach ($taggedTags as $i => $taggedTag):
 
-        <div class="button">
-            <button type="submit">Save Post</button>
-        </div>
-    </form>
+        if ($tag->getId() == $taggedTag->getId()) {
+            $tagged = true;
+            break;
+        }
+
+    endforeach;
+
+    $tagId = $tag->getId();
+    echo "<input type='checkbox' name='tags[]' value='$tagId'";
+    if ($tagged) {
+        echo " checked";
+    }
+    echo ">";
+    ?>
+									#<?php echo $tag->getName(); ?>
+
+									<?php endforeach;?>
+
+<div class="button">
+<button type="submit">Save Post</button>
+</div>
+</form>
 </section>

@@ -18,7 +18,7 @@ class TagModel extends AbstractModel
 
     public function getTagsOfPost($post_id): array
     {
-        $query = 'SELECT tagsposts.tags_id, tags.name as name FROM tagsposts INNER JOIN tags ON tagsposts.tags_id = tags.id WHERE post_Id=:post_Id';
+        $query = 'SELECT tagsposts.tags_id as id, tags.name as name FROM tagsposts INNER JOIN tags ON tagsposts.tags_id = tags.id WHERE post_Id=:post_Id';
         $sth = $this->db->prepare($query);
         $sth->execute(['post_Id' => $post_id]);
 

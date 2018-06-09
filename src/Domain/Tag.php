@@ -5,6 +5,7 @@ class Tag
 {
     private $id;
     private $name;
+ //   private $tagged;
 
     public function getId(): int
     {
@@ -15,4 +16,9 @@ class Tag
     {
         return $this->name;
     }
+
+/*     public function isTagged(): string
+    {
+        return $this->tagged;
+    } */
 }

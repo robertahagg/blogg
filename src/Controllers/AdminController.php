@@ -61,9 +61,11 @@ class AdminController extends AbstractController
 
         $tagModel = new TagModel();
         $tags = $tagModel->getAll();
+        $taggedTags = $tagModel->getTagsOfPost($postId);
 
         $properties = ['post' => $post,
             'categories' => $categories,
+            'taggedTags' => $taggedTags,
             'tags' => $tags];
 
         return $this->render('views/admin_post.php', $properties);

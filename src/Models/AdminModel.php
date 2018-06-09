@@ -28,7 +28,10 @@ class AdminModel extends AbstractModel
         }
         //skapa en insert query för tags_posts tabellen
 
-        $this->storeTags($this->db->lastInsertId(), $formdata['tags']);
+        $formTags = $formdata['tags'];
+        if (!empty($formTags)) {
+            $this->storeTags($this->db->lastInsertId(), $formTags);
+        }
 
         return $success;
     }
