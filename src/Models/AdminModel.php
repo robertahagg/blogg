@@ -58,7 +58,12 @@ class AdminModel extends AbstractModel
         }
         //skapa en insert query för tags_posts tabellen
 
-        // $this->storeTags($this->db->lastInsertId(), $formdata['tags']);
+        $this->deleteTags($postId);
+
+        $formTags = $formdata['tags'];
+        if (!empty($formTags)) {
+            $this->storeTags($postId, $formTags);
+        }
 
         return $success;
     }
@@ -91,6 +96,25 @@ Add rows:
                 var_dump($sth->errorInfo()); // Prints information about what went wrong.
                 throw new Exception('Something went wrong');
             }
+        }
+
+        return $success;
+    }
+
+    private function deleteTags($postId)
+    {
+        $query = "DELETE FROM tagsposts WHERE post_Id=:postid";
+        $sth = $this->db->prepare($query);
+        $sth->bindParam(':postid', $postId);
+
+        $success = '';
+
+        if ($sth->execute()) {
+            $success = 'true';
+        } else {
+            var_dump($sth->errorCode());
+            var_dump($sth->errorInfo()); // Prints information about what went wrong.
+            throw new Exception('Something went wrong');
         }
 
         return $success;
