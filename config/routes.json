@@ -3,6 +3,10 @@
         "controller": "Default",
         "method": "start"
     },
+    "login": {
+        "controller": "Admin",
+        "method": "login"
+    },
     "logout": {
         "login": true,
         "controller": "Admin",

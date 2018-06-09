@@ -135,4 +135,31 @@ class AdminController extends AbstractController
         }
     }
 
+    public function login(): string
+    {
+        if (!$this->request->isPost()) {
+            $params = ['errorMessage' => 'Method not allowed.'];
+            return $this->render('views/posts.php', $params);
+        }
+
+        $params = $this->request->getParams();
+        if (!$params->has('username', 'password')) {
+            $params = ['errorMessage' => 'Missing login details, please check entered fields.'];
+            return $this->render('views/posts.php', $params);
+        }
+
+        $username = $params->getString('username');
+        $password = $params->getString('password');
+        $postModel = new PostModel();
+
+        $userExist = $postModel->hasUserWithPassword($username, $password);
+
+        if ($userExist) {
+            setcookie('user', $username);
+            $this->redirect("admin");
+        } else {
+            $params = ['ErrorMessage' => 'Username not found.'];
+            return $this->render('views/posts.php', $params);
+        }
+    }
 }
