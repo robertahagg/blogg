@@ -63,7 +63,7 @@ class PostModel extends AbstractModel
         $sth = $this->db->prepare($query);
         $sth->bindParam('page', $start, PDO::PARAM_INT);
         $sth->bindParam('length', $pageLength, PDO::PARAM_INT);
-         $sth->bindParam('tags_id', $tagId, PDO::PARAM_INT);
+        $sth->bindParam('tags_id', $tagId, PDO::PARAM_INT);
 
         $sth->execute();
 
@@ -108,11 +108,10 @@ SQL;
 
     public function hasUserWithPassword(string $username, $password): bool
     {
-        $query = 'SELECT * FROM users WHERE username = :username AND password = :password';
+        $query = 'SELECT * FROM users WHERE username = :username';
         $sth = $this->db->prepare($query);
 
         $sth->bindParam(':username', $username);
-        $sth->bindParam(':password', $password);
 
         if (!$sth->execute()) {
             throw new \Exception('Something went wrong');
@@ -120,7 +119,7 @@ SQL;
 
         $row = $sth->fetch();
 
-        return !empty($row);
+        return Password::verify($password, $row['password']);
     }
 
     public function delete(int $postId)

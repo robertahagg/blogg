@@ -1,10 +1,10 @@
 <?php
-    global $assetPath;
-    if ($_SERVER['SERVER_NAME'] === 'blogg.robertahaggstrom.chas.academy') {
-        $assetPath = 'http://' . $_SERVER['HTTP_HOST'] . '/web/';
-    } else {
-        $assetPath = 'http://' . $_SERVER['HTTP_HOST'] . '/';
-    }
+global $assetPath;
+if ($_SERVER['SERVER_NAME'] === 'blogg.robertahaggstrom.chas.academy') {
+    $assetPath = 'http://' . $_SERVER['HTTP_HOST'] . '/web/';
+} else {
+    $assetPath = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,12 +35,12 @@
       <a href="/register"><button>Register new user</button></a>
 </div>
 
-<!--   <p class="errorMessageStyle">
+   <p class="errorMessageStyle">
       <?php
-      $errorLogin = $params['ErrorMessage'];
-      echo $errorLogin;
-      ?>
-  </p> -->
+$errorLogin = $params['ErrorMessage'];
+echo $errorLogin;
+?>
+  </p>
 
 </header>
 

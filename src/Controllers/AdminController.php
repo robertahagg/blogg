@@ -45,6 +45,8 @@ class AdminController extends AbstractController
             ];
 
             $adminModel->updatePost($postId, $properties);
+
+            return $this->redirect("/admin");
         }
 
         $postModel = new PostModel();
@@ -164,7 +166,7 @@ class AdminController extends AbstractController
             setcookie('user', $username);
             $this->redirect("admin");
         } else {
-            $params = ['ErrorMessage' => 'Username not found.'];
+            $params = ['ErrorMessage' => 'Wrong username or password.'];
             return $this->render('views/posts.php', $params);
         }
     }
