@@ -96,7 +96,7 @@ class PostsController extends AbstractController
             $username = $params->get('username');
             setcookie("user", "$username");
 
-            $this->redirect("admin");
+            $this->redirect("/admin");
         }
     }
 }

@@ -35,12 +35,12 @@
       <a href="/register"><button>Register new user</button></a>
 </div>
 
-  <p class="errorMessageStyle">
+<!--   <p class="errorMessageStyle">
       <?php
       $errorLogin = $params['ErrorMessage'];
       echo $errorLogin;
       ?>
-  </p>
+  </p> -->
 
 </header>
 

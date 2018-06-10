@@ -4,13 +4,15 @@ namespace Blog\Utils;
 
 class Password
 {
-public static function hash ($password)
-{
-    return password_hash($password, PASSWORD_DEFAULT, ['cost' =>14]);
+    public static function hash ($password)
     {
-        public static function verify ($password, $hash)
+        return password_hash($password, PASSWORD_DEFAULT, ['cost' =>14]);
     }
-    return password_verify($password, $hash);
+
+        public static function verify ($password, $hash)
     {
-{
+        return password_verify($password, $hash);
+    }
+
+}
     
