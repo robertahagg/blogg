@@ -18,9 +18,7 @@
         <tr>
             <th>Title</th>
             <th>Date</th>
-            <th>Author</th>
             <th>Category</th>
-            <th>Tags</th>
         </tr>
         <?php
             $posts = $params[posts];
@@ -33,9 +31,7 @@
             <td>
                 <?php echo $post->getDate(); ?>
             </td>
-            <td>
-                <?php echo $post->getTitle(); //author ?>
-            </td>
+            
             <td>
                 <?php echo $post->getCategory(); ?>
             </td>
