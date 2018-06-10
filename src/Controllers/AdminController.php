@@ -8,7 +8,7 @@ use Blog\Models\TagModel;
 
 class AdminController extends AbstractController
 {
-    const PAGE_LENGTH = 4;
+    const PAGE_LENGTH = 40;
 
     public function getAllWithPage($page): string
     {
