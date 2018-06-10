@@ -49,6 +49,14 @@
             "page": "number"
         }
     },
+    "tags/:tagId/posts/:page": {
+        "controller": "Posts",
+        "method": "getAllByTagWithPage",
+        "params": {
+            "tagId": "number",
+            "page": "number"
+        }
+    },
     "": {
         "controller": "Posts",
         "method": "handleRequest"

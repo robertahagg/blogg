@@ -21,6 +21,20 @@ foreach ($categories as $i => $category):
 endforeach;
 ?>
             </ul>
+
+   <h3>Tags</h3>
+            <ul>
+                            <?php
+$tagmodel = $params['tagModel'];
+$tags = $tagmodel->getAll();
+foreach ($tags as $i => $tag):
+    $name = $tag->getName();
+    $id = $tag->getId();
+
+    echo "<li><a href='/tags/$id/posts/1'>#$name</a></li>";
+endforeach;
+?>
+  </ul>
         </nav>
     </section>
 
@@ -52,7 +66,6 @@ foreach ($posts as $i => $post):
 
 <p>
                 <?php
-$tagmodel = $params['tagModel'];
 $tags = $tagmodel->getTagsOfPost($post->getId());
 
 foreach ($tags as $i => $tag):

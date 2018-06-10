@@ -54,6 +54,24 @@ class PostModel extends AbstractModel
         return $result;
     }
 
+    public function getAllByTag(int $page, int $pageLength, int $tagId): array
+    {
+        $start = $pageLength * ($page - 1);
+
+        $query = 'SELECT posts.*, categories.name as category_name FROM tagsposts INNER JOIN posts ON tagsposts.post_Id = posts.id INNER JOIN categories ON categories.id = posts.category WHERE tagsposts.tags_id=:tags_id ORDER BY posts.id LIMIT :page, :length';
+
+        $sth = $this->db->prepare($query);
+        $sth->bindParam('page', $start, PDO::PARAM_INT);
+        $sth->bindParam('length', $pageLength, PDO::PARAM_INT);
+         $sth->bindParam('tags_id', $tagId, PDO::PARAM_INT);
+
+        $sth->execute();
+
+        $result = $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
+
+        return $result;
+    }
+
     public function search(string $tags): array
     {
         $query = <<<SQL

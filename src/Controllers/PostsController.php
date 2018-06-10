@@ -19,7 +19,7 @@ class PostsController extends AbstractController
         }
     }
 
-    public function getAllWithPage($page, $categoryId): string
+    public function getAllWithPage($page, $categoryId, $tagId): string
     {
         $page = (int) $page;
         $postModel = new PostModel();
@@ -28,7 +28,12 @@ class PostsController extends AbstractController
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAll();
 
-        $posts = $postModel->getAll($page, self::PAGE_LENGTH, $categoryId);
+        if($tagId == null) {
+            $posts = $postModel->getAll($page, self::PAGE_LENGTH, $categoryId);
+        }
+        else {
+            $posts = $postModel->getAllByTag($page, self::PAGE_LENGTH, $tagId);
+        }
 
         $properties = [
             'posts' => $posts,
@@ -43,12 +48,17 @@ class PostsController extends AbstractController
 
     public function getAllByCategoryWithPage($categoryId, $page): string
     {
-        return $this->getAllWithPage($page, $categoryId);
+        return $this->getAllWithPage($page, $categoryId, null);
+    }
+
+    public function getAllByTagWithPage($tagId, $page): string
+    {
+        return $this->getAllWithPage($page, null, $tagId);
     }
 
     public function getAll(): string
     {
-        return $this->getAllWithPage(1, null);
+        return $this->getAllWithPage(1, null, null);
     }
 
     public function search(): string
